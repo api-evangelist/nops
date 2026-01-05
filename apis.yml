@@ -55,3 +55,32 @@ maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
 specificationVersion: '0.19'
+common:
+  - name: Technical Blogs & Tutorials | nOps
+    description: 'null'
+    url: https://www.nops.io/blog/
+    type: Blog
+  - name: Webcasts and Podcasts | Live & On-Demand | nOps
+    description: 'null'
+    url: https://www.nops.io/webinars-and-workshops/
+    type: Webinars
+  - name: nCast | nOps
+    description: 'null'
+    url: https://www.nops.io/ncast/
+    type: Podcast
+  - name: Welcome to the nOps Docs | nOps docs
+    description: 'null'
+    url: https://help.nops.io/docs/introduction/platform-introduction
+    type: Documentation
+  - name: nOps Customer Service SLAs | nOps docs
+    description: 'null'
+    url: https://help.nops.io/docs/support/customer-service-sla
+    type: ServiceLevelAgreement
+  - name: Open a support case with nOps | nOps docs
+    description: 'null'
+    url: https://help.nops.io/docs/support/open-support-case
+    type: Support
+  - name: Integrations Overview | nOps docs
+    description: 'null'
+    url: https://help.nops.io/docs/agents-integrations/integrations
+    type: Integrations
