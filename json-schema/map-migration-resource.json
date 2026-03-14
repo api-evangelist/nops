@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/nops/blob/main/json-schema/map-migration-resource.json",
+  "title": "nOps MAP Migration Resource",
+  "description": "A MAP Migration resource represents an individual AWS resource that is part of a MAP Migration project, tracked for migration and cost attribution.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier of the resource."
+    },
+    "resource_type": {
+      "type": "string",
+      "description": "The type of the AWS resource."
+    },
+    "resource_id": {
+      "type": "string",
+      "description": "The AWS resource identifier."
+    },
+    "project_id": {
+      "type": "integer",
+      "description": "The ID of the parent MAP Migration project."
+    }
+  }
+}

@@ -15,6 +15,16 @@ apis:
         type: Documentation
       - url: openapi/nops-nops-openapi.yml
         type: OpenAPI
+      - url: json-schema/map-migration-project.json
+        type: JSONSchema
+      - url: json-schema/map-migration-product.json
+        type: JSONSchema
+      - url: json-schema/map-migration-resource.json
+        type: JSONSchema
+      - url: json-schema/scheduler.json
+        type: JSONSchema
+      - url: json-ld/nops-context.jsonld
+        type: JSONLD
     description: >-
       nOps is an AWS-focused cloud management platform that helps engineering
       and FinOps teams cut costs, improve governance, and keep environments

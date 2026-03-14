@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/nops/blob/main/json-schema/scheduler.json",
+  "title": "nOps Scheduler",
+  "description": "A Scheduler automates resource management tasks such as starting and stopping non-production workloads on a defined schedule to reduce costs.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier of the scheduler."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the scheduler."
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the scheduler is currently enabled."
+    },
+    "project_id": {
+      "type": "integer",
+      "description": "The associated nOps AWS Project ID."
+    },
+    "schedule": {
+      "type": "object",
+      "description": "Schedule configuration defining when the scheduler runs."
+    },
+    "resources": {
+      "type": "array",
+      "description": "List of resources managed by this scheduler.",
+      "items": {
+        "type": "object"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the scheduler was created."
+    }
+  }
+}

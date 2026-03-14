@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "nops": "https://app.nops.io/",
+    "MapMigrationProject": {
+      "@id": "nops:map-migration-project",
+      "@context": {
+        "id": "https://schema.org/identifier",
+        "name": "https://schema.org/name",
+        "status": "https://schema.org/status",
+        "created_at": "https://schema.org/dateCreated",
+        "updated_at": "https://schema.org/dateModified"
+      }
+    },
+    "MapMigrationProduct": {
+      "@id": "nops:map-migration-product",
+      "@context": {
+        "id": "https://schema.org/identifier",
+        "name": "https://schema.org/name",
+        "project_id": {
+          "@id": "nops:map-migration-project",
+          "@type": "@id"
+        }
+      }
+    },
+    "MapMigrationResource": {
+      "@id": "nops:map-migration-resource",
+      "@context": {
+        "id": "https://schema.org/identifier",
+        "resource_type": "https://schema.org/category",
+        "resource_id": "https://schema.org/identifier",
+        "project_id": {
+          "@id": "nops:map-migration-project",
+          "@type": "@id"
+        }
+      }
+    },
+    "Scheduler": {
+      "@id": "nops:scheduler",
+      "@context": {
+        "id": "https://schema.org/identifier",
+        "name": "https://schema.org/name",
+        "enabled": "https://schema.org/actionStatus",
+        "project_id": "https://schema.org/identifier",
+        "schedule": "https://schema.org/Schedule",
+        "resources": "https://schema.org/hasPart",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    }
+  }
+}
