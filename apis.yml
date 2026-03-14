@@ -7,9 +7,14 @@ apis:
       - FinOps
       - Costs
     humanURL: ' https://www.nops.io/'
+    baseURL: https://app.nops.io
     properties:
       - url: ' https://www.nops.io/'
         type: Documentation
+      - url: https://app.nops.io/public_redoc/
+        type: Documentation
+      - url: openapi/nops-nops-openapi.yml
+        type: OpenAPI
     description: >-
       nOps is an AWS-focused cloud management platform that helps engineering
       and FinOps teams cut costs, improve governance, and keep environments
@@ -32,7 +37,7 @@ type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2026-01-02'
-modified: '2026-01-04'
+modified: '2026-03-14'
 position: Consuming
 description: >-
   nOps is an AI-powered cloud cost visibility and optimization platform that

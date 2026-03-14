@@ -1,0 +1,474 @@
+openapi: 3.1.0
+info:
+  title: nOps API
+  description: >-
+    The nOps public API provides programmatic access to cloud cost and usage
+    insights, MAP migration project management, and essentials scheduler
+    operations. It enables teams to monitor and analyze AWS environments,
+    automate cost optimization tasks, and integrate nOps data into existing
+    analytics tools and monitoring systems outside of the nOps dashboard.
+  version: 1.0.0
+  contact:
+    name: nOps Support
+    url: https://help.nops.io/docs/support/open-support-case
+  termsOfService: https://www.nops.io/terms-of-service/
+servers:
+  - url: https://app.nops.io
+    description: nOps Production API
+security:
+  - ApiKeyAuth: []
+paths:
+  /c/v3/map-migration/:
+    get:
+      operationId: listMapMigrationProjects
+      summary: List MAP migration projects
+      description: >-
+        Lists all MAP Migration projects for the current client. Returns a JSON
+        array containing all MAP Migration projects signed by the customer with
+        AWS.
+      tags:
+        - MAP Migration
+      responses:
+        '200':
+          description: Successful response with list of MAP migration projects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MapMigrationProject'
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+        '403':
+          description: Forbidden. Insufficient permissions.
+  /c/v3/map-migration/{id}/:
+    get:
+      operationId: getMapMigrationProject
+      summary: Retrieve a MAP migration project
+      description: >-
+        Retrieves details of a specific MAP migration project by its ID.
+      tags:
+        - MAP Migration
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the MAP Migration project.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response with project details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapMigrationProject'
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+        '404':
+          description: MAP migration project not found.
+  /c/v3/map-migration/{id}/products/:
+    get:
+      operationId: listMapMigrationProducts
+      summary: List products in a MAP migration project
+      description: >-
+        Lists all products within a specific MAP migration project.
+      tags:
+        - MAP Migration
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the MAP Migration project.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response with list of products.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MapMigrationProduct'
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+        '404':
+          description: MAP migration project not found.
+  /c/v3/map-migration/{id}/resources/:
+    get:
+      operationId: listMapMigrationResources
+      summary: List resources in a MAP migration project
+      description: >-
+        Lists the resources within a specific MAP migration project.
+      tags:
+        - MAP Migration
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the MAP Migration project.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response with list of resources.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MapMigrationResource'
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+        '404':
+          description: MAP migration project not found.
+  /svc/k8s_cost/recommendations/essentials/scheduler/workload/:
+    get:
+      operationId: getSchedulerWorkloadRecommendations
+      summary: Get scheduler workload recommendations
+      description: >-
+        Retrieves workload recommendations for the Essentials scheduler,
+        including suggestions for scheduling non-production workloads to
+        reduce costs.
+      tags:
+        - Essentials Scheduler
+      parameters:
+        - name: sort_type
+          in: query
+          required: false
+          description: Sort order for results (asc or desc).
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: project_id
+          in: query
+          required: false
+          description: Comma-separated list of nOps AWS Project IDs to filter by.
+          schema:
+            type: string
+        - name: environment
+          in: query
+          required: false
+          description: Comma-separated list of environments to filter by.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with workload recommendations.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+  /svc/k8s_cost/recommendations/essentials/scheduler/workload/summary/:
+    get:
+      operationId: getSchedulerWorkloadSummary
+      summary: Get scheduler workload summary
+      description: >-
+        Retrieves a summary of workload recommendations for the Essentials
+        scheduler.
+      tags:
+        - Essentials Scheduler
+      parameters:
+        - name: project_id
+          in: query
+          required: false
+          description: Comma-separated list of nOps AWS Project IDs to filter by.
+          schema:
+            type: string
+        - name: environment
+          in: query
+          required: false
+          description: Comma-separated list of environments to filter by.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with workload summary.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+  /svc/k8s_cost/recommendations/essentials/scheduler/utilization/:
+    get:
+      operationId: getSchedulerUtilizationRecommendations
+      summary: Get scheduler utilization recommendations
+      description: >-
+        Retrieves utilization-based recommendations for the Essentials
+        scheduler, identifying idle or underutilized resources.
+      tags:
+        - Essentials Scheduler
+      parameters:
+        - name: sort_type
+          in: query
+          required: false
+          description: Sort order for results (asc or desc).
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: project_id
+          in: query
+          required: false
+          description: Comma-separated list of nOps AWS Project IDs to filter by.
+          schema:
+            type: string
+        - name: environment
+          in: query
+          required: false
+          description: Comma-separated list of environments to filter by.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with utilization recommendations.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+  /svc/k8s_cost/recommendations/essentials/scheduler/utilization/summary/:
+    get:
+      operationId: getSchedulerUtilizationSummary
+      summary: Get scheduler utilization summary
+      description: >-
+        Retrieves a summary of utilization recommendations for the Essentials
+        scheduler.
+      tags:
+        - Essentials Scheduler
+      parameters:
+        - name: project_id
+          in: query
+          required: false
+          description: Comma-separated list of nOps AWS Project IDs to filter by.
+          schema:
+            type: string
+        - name: environment
+          in: query
+          required: false
+          description: Comma-separated list of environments to filter by.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with utilization summary.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+  /svc/notifications/scheduler/nops_scheduler:
+    post:
+      operationId: createScheduler
+      summary: Create a scheduler
+      description: >-
+        Creates a new scheduler for automating resource management tasks such
+        as starting and stopping non-production workloads on a schedule to
+        reduce costs.
+      tags:
+        - Essentials Scheduler
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SchedulerCreateRequest'
+      responses:
+        '201':
+          description: Scheduler created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scheduler'
+        '400':
+          description: Bad request. Invalid scheduler configuration.
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+  /svc/notifications/scheduler/{id}/trigger:
+    post:
+      operationId: triggerScheduler
+      summary: Manually trigger a scheduler
+      description: >-
+        Manually triggers a specific scheduler to run its configured actions
+        immediately.
+      tags:
+        - Essentials Scheduler
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the scheduler to trigger.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Scheduler triggered successfully.
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+        '404':
+          description: Scheduler not found.
+  /svc/notifications/scheduler/{id}/enable:
+    post:
+      operationId: enableScheduler
+      summary: Enable a scheduler
+      description: >-
+        Enables a previously disabled scheduler so it resumes running on its
+        configured schedule.
+      tags:
+        - Essentials Scheduler
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the scheduler to enable.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Scheduler enabled successfully.
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+        '404':
+          description: Scheduler not found.
+  /svc/notifications/scheduler/{id}/disable:
+    post:
+      operationId: disableScheduler
+      summary: Disable a scheduler
+      description: >-
+        Disables a scheduler so it stops running on its configured schedule.
+      tags:
+        - Essentials Scheduler
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the scheduler to disable.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Scheduler disabled successfully.
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+        '404':
+          description: Scheduler not found.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Nops-Api-Key
+      description: >-
+        API key generated from the nOps console under Organization Settings.
+        Include this key in the X-Nops-Api-Key header for all requests.
+    SignatureAuth:
+      type: apiKey
+      in: header
+      name: x-nops-signature
+      description: >-
+        Encoded signature for enhanced security. Created using a public/private
+        key pair configured in the nOps console.
+  schemas:
+    MapMigrationProject:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the MAP Migration project.
+        name:
+          type: string
+          description: The name of the MAP Migration project.
+        status:
+          type: string
+          description: The current status of the project.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the project was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when the project was last updated.
+    MapMigrationProduct:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the product.
+        name:
+          type: string
+          description: The name of the product.
+        project_id:
+          type: integer
+          description: The ID of the parent MAP Migration project.
+    MapMigrationResource:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the resource.
+        resource_type:
+          type: string
+          description: The type of the AWS resource.
+        resource_id:
+          type: string
+          description: The AWS resource identifier.
+        project_id:
+          type: integer
+          description: The ID of the parent MAP Migration project.
+    SchedulerCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the scheduler.
+        project_id:
+          type: integer
+          description: The nOps AWS Project ID to associate with.
+        schedule:
+          type: object
+          description: Schedule configuration for the scheduler.
+        resources:
+          type: array
+          description: List of resources to manage with this scheduler.
+          items:
+            type: object
+    Scheduler:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the scheduler.
+        name:
+          type: string
+          description: Name of the scheduler.
+        enabled:
+          type: boolean
+          description: Whether the scheduler is currently enabled.
+        project_id:
+          type: integer
+          description: The associated nOps AWS Project ID.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the scheduler was created.
+tags:
+  - name: MAP Migration
+    description: >-
+      Endpoints for managing and retrieving information about AWS Migration
+      Acceleration Program (MAP) migration projects, including projects,
+      products, and resources.
+  - name: Essentials Scheduler
+    description: >-
+      Endpoints for managing the nOps Essentials scheduler, which automates
+      resource management tasks like starting and stopping non-production
+      workloads to reduce costs.
