@@ -462,13 +462,13 @@ components:
           format: date-time
           description: Timestamp when the scheduler was created.
 tags:
-  - name: MAP Migration
-    description: >-
-      Endpoints for managing and retrieving information about AWS Migration
-      Acceleration Program (MAP) migration projects, including projects,
-      products, and resources.
   - name: Essentials Scheduler
     description: >-
       Endpoints for managing the nOps Essentials scheduler, which automates
       resource management tasks like starting and stopping non-production
       workloads to reduce costs.
+  - name: MAP Migration
+    description: >-
+      Endpoints for managing and retrieving information about AWS Migration
+      Acceleration Program (MAP) migration projects, including projects,
+      products, and resources.

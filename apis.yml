@@ -1,12 +1,11 @@
 aid: nops
-url: 
-  https://raw.githubusercontent.com/api-evangelist/nops/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/nops/refs/heads/main/apis.yml
 apis:
   - aid: nops:nops
     name: nOps
     tags:
-      - FinOps
       - Costs
+      - FinOps
     humanURL: ' https://www.nops.io/'
     baseURL: https://app.nops.io
     properties:
@@ -35,8 +34,8 @@ apis:
       EBS/S3, and increasing efficient use of Spot.
 name: nOps
 tags:
-  - FinOps
   - Costs
+  - FinOps
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
