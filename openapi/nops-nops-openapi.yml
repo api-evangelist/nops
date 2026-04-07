@@ -21,7 +21,7 @@ paths:
   /c/v3/map-migration/:
     get:
       operationId: listMapMigrationProjects
-      summary: List MAP migration projects
+      summary: nOps List MAP migration projects
       description: >-
         Lists all MAP Migration projects for the current client. Returns a JSON
         array containing all MAP Migration projects signed by the customer with
@@ -44,7 +44,7 @@ paths:
   /c/v3/map-migration/{id}/:
     get:
       operationId: getMapMigrationProject
-      summary: Retrieve a MAP migration project
+      summary: nOps Retrieve a MAP migration project
       description: >-
         Retrieves details of a specific MAP migration project by its ID.
       tags:
@@ -70,7 +70,7 @@ paths:
   /c/v3/map-migration/{id}/products/:
     get:
       operationId: listMapMigrationProducts
-      summary: List products in a MAP migration project
+      summary: nOps List products in a MAP migration project
       description: >-
         Lists all products within a specific MAP migration project.
       tags:
@@ -98,7 +98,7 @@ paths:
   /c/v3/map-migration/{id}/resources/:
     get:
       operationId: listMapMigrationResources
-      summary: List resources in a MAP migration project
+      summary: nOps List resources in a MAP migration project
       description: >-
         Lists the resources within a specific MAP migration project.
       tags:
@@ -126,7 +126,7 @@ paths:
   /svc/k8s_cost/recommendations/essentials/scheduler/workload/:
     get:
       operationId: getSchedulerWorkloadRecommendations
-      summary: Get scheduler workload recommendations
+      summary: nOps Get scheduler workload recommendations
       description: >-
         Retrieves workload recommendations for the Essentials scheduler,
         including suggestions for scheduling non-production workloads to
@@ -167,7 +167,7 @@ paths:
   /svc/k8s_cost/recommendations/essentials/scheduler/workload/summary/:
     get:
       operationId: getSchedulerWorkloadSummary
-      summary: Get scheduler workload summary
+      summary: nOps Get scheduler workload summary
       description: >-
         Retrieves a summary of workload recommendations for the Essentials
         scheduler.
@@ -198,7 +198,7 @@ paths:
   /svc/k8s_cost/recommendations/essentials/scheduler/utilization/:
     get:
       operationId: getSchedulerUtilizationRecommendations
-      summary: Get scheduler utilization recommendations
+      summary: nOps Get scheduler utilization recommendations
       description: >-
         Retrieves utilization-based recommendations for the Essentials
         scheduler, identifying idle or underutilized resources.
@@ -238,7 +238,7 @@ paths:
   /svc/k8s_cost/recommendations/essentials/scheduler/utilization/summary/:
     get:
       operationId: getSchedulerUtilizationSummary
-      summary: Get scheduler utilization summary
+      summary: nOps Get scheduler utilization summary
       description: >-
         Retrieves a summary of utilization recommendations for the Essentials
         scheduler.
@@ -269,7 +269,7 @@ paths:
   /svc/notifications/scheduler/nops_scheduler:
     post:
       operationId: createScheduler
-      summary: Create a scheduler
+      summary: nOps Create a scheduler
       description: >-
         Creates a new scheduler for automating resource management tasks such
         as starting and stopping non-production workloads on a schedule to
@@ -296,7 +296,7 @@ paths:
   /svc/notifications/scheduler/{id}/trigger:
     post:
       operationId: triggerScheduler
-      summary: Manually trigger a scheduler
+      summary: nOps Manually trigger a scheduler
       description: >-
         Manually triggers a specific scheduler to run its configured actions
         immediately.
@@ -319,7 +319,7 @@ paths:
   /svc/notifications/scheduler/{id}/enable:
     post:
       operationId: enableScheduler
-      summary: Enable a scheduler
+      summary: nOps Enable a scheduler
       description: >-
         Enables a previously disabled scheduler so it resumes running on its
         configured schedule.
@@ -342,7 +342,7 @@ paths:
   /svc/notifications/scheduler/{id}/disable:
     post:
       operationId: disableScheduler
-      summary: Disable a scheduler
+      summary: nOps Disable a scheduler
       description: >-
         Disables a scheduler so it stops running on its configured schedule.
       tags:
