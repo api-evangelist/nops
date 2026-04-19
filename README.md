@@ -1,55 +1,94 @@
 # nOps (nops)
-nOps is an AI-powered cloud cost visibility and optimization platform that helps organizations reduce their AWS spending by 50% or more through autonomous management and automation. The platform provides 100% visibility into cloud costs across AWS, GCP, Azure, Kubernetes, GenAI, and SaaS applications, enabling teams to allocate and track spending by customer, product, cost center, or any other dimension even without complete tagging. nOps uses machine learning to continuously optimize compute resources across Reserved Instances, Savings Plans, and Spot instances, while its Compute Copilot specifically reduces EKS and ASG costs through automatic environment optimization. The platform also automates time-consuming cost optimization tasks by learning usage patterns, identifying idle resources, and turning them off automatically to eliminate waste. Managing over $2 billion in annual AWS spend for more than 500 customers ranging from startups to enterprises, nOps addresses the common problem that 30% of cloud spend is waste and helps organizations move away from expensive on-demand pricing that makes up 20% of typical compute costs.
+nOps is an AI-powered cloud cost visibility and optimization platform that helps organizations reduce their AWS spending by 50% or more through autonomous management and automation.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/nops/refs/heads/main/apis.yml)
 
-## Scope
-
-- **Type:** Contract 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
 
 ## Tags:
 
- - FinOps, Costs
+ - Costs, FinOps
 
 ## Timestamps
 
-- **Created:** 2026-01-02 
-- **Modified:** 2026-03-16 
+- **Created:** 2026-01-02
+- **Modified:** 2026-04-18
 
 ## APIs
 
 ### nOps
-nOps is an AWS-focused cloud management platform that helps engineering and FinOps teams cut costs, improve governance, and keep environments well-architected. It ingests AWS billing and telemetry data (such as CUR, CloudTrail, and CloudWatch) to surface real-time insights, flag anomalies, and recommend actions like rightsizing, eliminating idle resources, scheduling non‑production workloads, optimizing EBS/S3, and increasing efficient use of Spot. nOps also automates savings through commitment management for Savings Plans and Reserved Instances, and provides tools for cost allocation, tagging hygiene, and Kubernetes/EKS cost optimization. Beyond cost, it continuously checks environments against AWS Well-Architected and other best practices, enabling ongoing compliance, change tracking, and remediation so teams can reduce spend, boost reliability, and move faster with confidence.
+nOps is an AWS-focused cloud management platform that helps engineering and FinOps teams cut costs, improve governance, and keep environments well-architected.
 
-**Human URL:** [ https://www.nops.io/]( https://www.nops.io/)
-
+**Human URL:** [https://www.nops.io/](https://www.nops.io/)
 
 #### Tags:
 
- - FinOps, Costs
+ - Costs, FinOps
 
 #### Properties
 
-- [Documentation]( https://www.nops.io/)
+- [Documentation](https://www.nops.io/)
 - [Documentation](https://app.nops.io/public_redoc/)
 - [OpenAPI](openapi/nops-nops-openapi.yml)
 - [JSONSchema](json-schema/map-migration-project.json)
-- [JSONSchema](json-schema/map-migration-product.json)
-- [JSONSchema](json-schema/map-migration-resource.json)
-- [JSONSchema](json-schema/scheduler.json)
 - [JSONLD](json-ld/nops-context.jsonld)
 
 ## Common Properties
 
 - [Blog](https://www.nops.io/blog/)
 - [Webinars](https://www.nops.io/webinars-and-workshops/)
-- [Podcast](https://www.nops.io/ncast/)
 - [Documentation](https://help.nops.io/docs/introduction/platform-introduction)
-- [ServiceLevelAgreement](https://help.nops.io/docs/support/customer-service-sla)
 - [Support](https://help.nops.io/docs/support/open-support-case)
 - [Integrations](https://help.nops.io/docs/agents-integrations/integrations)
+
+## Features
+
+| Name | Description |
+|------|-------------|
+| Autonomous Cost Optimization | AI-powered autonomous management that identifies and implements cost savings without manual intervention. |
+| 100% Cost Visibility | Complete visibility into cloud costs across AWS, GCP, Azure, Kubernetes, GenAI, and SaaS applications. |
+| Essentials Scheduler | Automated scheduling of non-production workloads to eliminate idle resource costs. |
+| MAP Migration Support | AWS Migration Acceleration Program tracking for migration projects, products, and resources. |
+| Spot Instance Optimization | Intelligent spot instance management for maximizing cost savings on compute workloads. |
+
+## Use Cases
+
+| Name | Description |
+|------|-------------|
+| FinOps Automation | Automate cloud cost allocation, tracking, and optimization across teams and business units. |
+| Cloud Migration Tracking | Track MAP migration projects and measure cost savings from AWS migration programs. |
+| Idle Resource Elimination | Identify and schedule or terminate idle resources to reduce wasted cloud spending. |
+| Cost Anomaly Detection | Real-time detection and alerting on unusual cost spikes and billing anomalies. |
+
+## Integrations
+
+| Name | Description |
+|------|-------------|
+| AWS Services | Deep integration with AWS billing, CUR, CloudTrail, CloudWatch, and resource management services. |
+| Kubernetes | Container cost visibility and optimization for EKS and self-managed Kubernetes clusters. |
+| Slack and Teams | Notification integrations for cost alerts, optimization recommendations, and scheduler events. |
+
+## Artifacts
+
+Machine-readable API specifications organized by format.
+
+### OpenAPI
+
+- [nOps API](openapi/nops-nops-openapi.yml)
+
+## Capabilities
+
+Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
+
+### Shared Per-API Definitions
+
+- [nOps API](capabilities/shared/nops.yaml) -- 12 operations for MAP migration and scheduler management
+
+### Workflow Capabilities
+
+| Workflow | APIs Combined | Tools | Persona |
+|----------|--------------|-------|---------|
+| [Cloud Cost Optimization](capabilities/cloud-cost-optimization.yaml) | nOps | 12 | FinOps Engineer |
 
 ## Maintainers
 

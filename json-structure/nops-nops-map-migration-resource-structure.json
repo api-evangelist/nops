@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "MapMigrationResource",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "resource_type": {
+      "type": "string"
+    },
+    "resource_id": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "integer"
+    }
+  }
+}

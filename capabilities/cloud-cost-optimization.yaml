@@ -1,0 +1,44 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: "nOps Cloud Cost Optimization"
+  description: "Unified cloud cost optimization capability combining MAP migration tracking, scheduler automation, and cost recommendations. Used by FinOps teams and cloud operations engineers."
+  tags: [nOps, FinOps, Cloud Costs, Optimization]
+  created: "2026-04-18"
+  modified: "2026-04-18"
+binds:
+  - namespace: env
+    keys:
+      NOPS_API_KEY: NOPS_API_KEY
+capability:
+  consumes:
+    - import: nops
+      location: ./shared/nops.yaml
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: cloud-cost-optimization-api
+      description: "Unified REST API for nOps cloud cost optimization."
+      resources:
+        - path: /v1/map-projects
+          name: map-projects
+          description: "MAP migration projects"
+          operations:
+            - { method: GET, name: list-map-projects, description: "List MAP migration projects", call: "nops.list-map-projects", outputParameters: [{ type: object, mapping: "$." }] }
+    - type: mcp
+      port: 9090
+      namespace: cloud-cost-optimization-mcp
+      transport: http
+      description: "MCP server for AI-assisted cloud cost optimization."
+      tools:
+        - { name: list-map-projects, description: "List MAP migration projects", hints: { readOnly: true }, call: "nops.list-map-projects", outputParameters: [{ type: object, mapping: "$." }] }
+        - { name: get-map-project, description: "Get MAP migration project details", hints: { readOnly: true }, call: "nops.get-map-project", outputParameters: [{ type: object, mapping: "$." }] }
+        - { name: list-map-products, description: "List products in a MAP project", hints: { readOnly: true }, call: "nops.list-map-products", outputParameters: [{ type: object, mapping: "$." }] }
+        - { name: list-map-resources, description: "List resources in a MAP project", hints: { readOnly: true }, call: "nops.list-map-resources", outputParameters: [{ type: object, mapping: "$." }] }
+        - { name: get-workload-recommendations, description: "Get scheduler workload recommendations", hints: { readOnly: true }, call: "nops.get-workload-recommendations", outputParameters: [{ type: object, mapping: "$." }] }
+        - { name: get-workload-summary, description: "Get scheduler workload summary", hints: { readOnly: true }, call: "nops.get-workload-summary", outputParameters: [{ type: object, mapping: "$." }] }
+        - { name: get-utilization-recommendations, description: "Get utilization recommendations", hints: { readOnly: true }, call: "nops.get-utilization-recommendations", outputParameters: [{ type: object, mapping: "$." }] }
+        - { name: get-utilization-summary, description: "Get utilization summary", hints: { readOnly: true }, call: "nops.get-utilization-summary", outputParameters: [{ type: object, mapping: "$." }] }
+        - { name: create-scheduler, description: "Create a scheduler", call: "nops.create-scheduler", outputParameters: [{ type: object, mapping: "$." }] }
+        - { name: trigger-scheduler, description: "Manually trigger a scheduler", call: "nops.trigger-scheduler", outputParameters: [{ type: object, mapping: "$." }] }
+        - { name: enable-scheduler, description: "Enable a scheduler", call: "nops.enable-scheduler", outputParameters: [{ type: object, mapping: "$." }] }
+        - { name: disable-scheduler, description: "Disable a scheduler", call: "nops.disable-scheduler", outputParameters: [{ type: object, mapping: "$." }] }

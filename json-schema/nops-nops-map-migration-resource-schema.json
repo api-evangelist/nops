@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MapMigrationResource",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier of the resource."
+    },
+    "resource_type": {
+      "type": "string",
+      "description": "The type of the AWS resource."
+    },
+    "resource_id": {
+      "type": "string",
+      "description": "The AWS resource identifier."
+    },
+    "project_id": {
+      "type": "integer",
+      "description": "The ID of the parent MAP Migration project."
+    }
+  }
+}

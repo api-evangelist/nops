@@ -1,0 +1,9 @@
+name: nops API Vocabulary
+provider: nops
+created: '2026-04-18'
+modified: '2026-04-18'
+operations: 12
+schemas: 5
+tags:
+- Essentials Scheduler
+- MAP Migration

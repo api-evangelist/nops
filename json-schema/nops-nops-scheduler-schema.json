@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Scheduler",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier of the scheduler."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the scheduler."
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the scheduler is currently enabled."
+    },
+    "project_id": {
+      "type": "integer",
+      "description": "The associated nOps AWS Project ID."
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp when the scheduler was created."
+    }
+  }
+}

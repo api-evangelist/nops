@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SchedulerCreateRequest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "integer"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "resources": {
+      "type": "array"
+    }
+  }
+}

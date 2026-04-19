@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SchedulerCreateRequest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the scheduler."
+    },
+    "project_id": {
+      "type": "integer",
+      "description": "The nOps AWS Project ID to associate with."
+    },
+    "schedule": {
+      "type": "object",
+      "description": "Schedule configuration for the scheduler."
+    },
+    "resources": {
+      "type": "array",
+      "description": "List of resources to manage with this scheduler."
+    }
+  }
+}

@@ -1,0 +1,43 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: "nOps API"
+  description: "nOps API for cloud cost visibility, MAP migration tracking, and workload scheduling optimization."
+  tags: [nOps, FinOps, Cloud Costs, AWS]
+  created: "2026-04-18"
+  modified: "2026-04-18"
+binds:
+  - namespace: env
+    keys:
+      NOPS_API_KEY: NOPS_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: nops
+      baseUri: https://app.nops.io
+      description: "nOps public API for MAP migration and scheduler operations."
+      authentication:
+        type: apikey
+        key: X-Nops-Api-Key
+        value: "{{NOPS_API_KEY}}"
+        placement: header
+      resources:
+        - name: map-migration
+          path: /c/v3/map-migration
+          description: "MAP Migration operations"
+          operations:
+            - { name: list-map-projects, method: GET, description: "List MAP migration projects", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }
+            - { name: get-map-project, method: GET, description: "Get MAP migration project details", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }
+            - { name: list-map-products, method: GET, description: "List products in a MAP project", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }
+            - { name: list-map-resources, method: GET, description: "List resources in a MAP project", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }
+        - name: scheduler
+          path: /svc
+          description: "Essentials scheduler operations"
+          operations:
+            - { name: get-workload-recommendations, method: GET, description: "Get scheduler workload recommendations", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }
+            - { name: get-workload-summary, method: GET, description: "Get scheduler workload summary", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }
+            - { name: get-utilization-recommendations, method: GET, description: "Get utilization recommendations", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }
+            - { name: get-utilization-summary, method: GET, description: "Get utilization summary", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }
+            - { name: create-scheduler, method: POST, description: "Create a scheduler", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }
+            - { name: trigger-scheduler, method: POST, description: "Manually trigger a scheduler", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }
+            - { name: enable-scheduler, method: POST, description: "Enable a scheduler", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }
+            - { name: disable-scheduler, method: POST, description: "Disable a scheduler", outputRawFormat: json, outputParameters: [{ name: result, type: object, value: "$." }] }

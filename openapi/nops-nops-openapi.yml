@@ -13,21 +13,21 @@ info:
     url: https://help.nops.io/docs/support/open-support-case
   termsOfService: https://www.nops.io/terms-of-service/
 servers:
-  - url: https://app.nops.io
-    description: nOps Production API
+- url: https://app.nops.io
+  description: nOps Production API
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
 paths:
   /c/v3/map-migration/:
     get:
       operationId: listMapMigrationProjects
-      summary: nOps List MAP migration projects
+      summary: Nops List Map Migration Projects
       description: >-
         Lists all MAP Migration projects for the current client. Returns a JSON
         array containing all MAP Migration projects signed by the customer with
         AWS.
       tags:
-        - MAP Migration
+      - MAP Migration
       responses:
         '200':
           description: Successful response with list of MAP migration projects.
@@ -41,21 +41,24 @@ paths:
           description: Unauthorized. Invalid or missing API key.
         '403':
           description: Forbidden. Insufficient permissions.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /c/v3/map-migration/{id}/:
     get:
       operationId: getMapMigrationProject
-      summary: nOps Retrieve a MAP migration project
+      summary: Nops Retrieve a Map Migration Project
       description: >-
         Retrieves details of a specific MAP migration project by its ID.
       tags:
-        - MAP Migration
+      - MAP Migration
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: The ID of the MAP Migration project.
-          schema:
-            type: integer
+      - name: id
+        in: path
+        required: true
+        description: The ID of the MAP Migration project.
+        schema:
+          type: integer
       responses:
         '200':
           description: Successful response with project details.
@@ -67,21 +70,24 @@ paths:
           description: Unauthorized. Invalid or missing API key.
         '404':
           description: MAP migration project not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /c/v3/map-migration/{id}/products/:
     get:
       operationId: listMapMigrationProducts
-      summary: nOps List products in a MAP migration project
+      summary: Nops List Products in a Map Migration Project
       description: >-
         Lists all products within a specific MAP migration project.
       tags:
-        - MAP Migration
+      - MAP Migration
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: The ID of the MAP Migration project.
-          schema:
-            type: integer
+      - name: id
+        in: path
+        required: true
+        description: The ID of the MAP Migration project.
+        schema:
+          type: integer
       responses:
         '200':
           description: Successful response with list of products.
@@ -95,21 +101,24 @@ paths:
           description: Unauthorized. Invalid or missing API key.
         '404':
           description: MAP migration project not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /c/v3/map-migration/{id}/resources/:
     get:
       operationId: listMapMigrationResources
-      summary: nOps List resources in a MAP migration project
+      summary: Nops List Resources in a Map Migration Project
       description: >-
         Lists the resources within a specific MAP migration project.
       tags:
-        - MAP Migration
+      - MAP Migration
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: The ID of the MAP Migration project.
-          schema:
-            type: integer
+      - name: id
+        in: path
+        required: true
+        description: The ID of the MAP Migration project.
+        schema:
+          type: integer
       responses:
         '200':
           description: Successful response with list of resources.
@@ -123,38 +132,41 @@ paths:
           description: Unauthorized. Invalid or missing API key.
         '404':
           description: MAP migration project not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /svc/k8s_cost/recommendations/essentials/scheduler/workload/:
     get:
       operationId: getSchedulerWorkloadRecommendations
-      summary: nOps Get scheduler workload recommendations
+      summary: Nops Get Scheduler Workload Recommendations
       description: >-
         Retrieves workload recommendations for the Essentials scheduler,
         including suggestions for scheduling non-production workloads to
         reduce costs.
       tags:
-        - Essentials Scheduler
+      - Essentials Scheduler
       parameters:
-        - name: sort_type
-          in: query
-          required: false
-          description: Sort order for results (asc or desc).
-          schema:
-            type: string
-            enum:
-              - asc
-              - desc
-        - name: project_id
-          in: query
-          required: false
-          description: Comma-separated list of nOps AWS Project IDs to filter by.
-          schema:
-            type: string
-        - name: environment
-          in: query
-          required: false
-          description: Comma-separated list of environments to filter by.
-          schema:
-            type: string
+      - name: sort_type
+        in: query
+        required: false
+        description: Sort order for results (asc or desc).
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - name: project_id
+        in: query
+        required: false
+        description: Comma-separated list of nOps AWS Project IDs to filter by.
+        schema:
+          type: string
+      - name: environment
+        in: query
+        required: false
+        description: Comma-separated list of environments to filter by.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with workload recommendations.
@@ -164,28 +176,31 @@ paths:
                 type: object
         '401':
           description: Unauthorized. Invalid or missing API key.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /svc/k8s_cost/recommendations/essentials/scheduler/workload/summary/:
     get:
       operationId: getSchedulerWorkloadSummary
-      summary: nOps Get scheduler workload summary
+      summary: Nops Get Scheduler Workload Summary
       description: >-
         Retrieves a summary of workload recommendations for the Essentials
         scheduler.
       tags:
-        - Essentials Scheduler
+      - Essentials Scheduler
       parameters:
-        - name: project_id
-          in: query
-          required: false
-          description: Comma-separated list of nOps AWS Project IDs to filter by.
-          schema:
-            type: string
-        - name: environment
-          in: query
-          required: false
-          description: Comma-separated list of environments to filter by.
-          schema:
-            type: string
+      - name: project_id
+        in: query
+        required: false
+        description: Comma-separated list of nOps AWS Project IDs to filter by.
+        schema:
+          type: string
+      - name: environment
+        in: query
+        required: false
+        description: Comma-separated list of environments to filter by.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with workload summary.
@@ -195,37 +210,40 @@ paths:
                 type: object
         '401':
           description: Unauthorized. Invalid or missing API key.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /svc/k8s_cost/recommendations/essentials/scheduler/utilization/:
     get:
       operationId: getSchedulerUtilizationRecommendations
-      summary: nOps Get scheduler utilization recommendations
+      summary: Nops Get Scheduler Utilization Recommendations
       description: >-
         Retrieves utilization-based recommendations for the Essentials
         scheduler, identifying idle or underutilized resources.
       tags:
-        - Essentials Scheduler
+      - Essentials Scheduler
       parameters:
-        - name: sort_type
-          in: query
-          required: false
-          description: Sort order for results (asc or desc).
-          schema:
-            type: string
-            enum:
-              - asc
-              - desc
-        - name: project_id
-          in: query
-          required: false
-          description: Comma-separated list of nOps AWS Project IDs to filter by.
-          schema:
-            type: string
-        - name: environment
-          in: query
-          required: false
-          description: Comma-separated list of environments to filter by.
-          schema:
-            type: string
+      - name: sort_type
+        in: query
+        required: false
+        description: Sort order for results (asc or desc).
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - name: project_id
+        in: query
+        required: false
+        description: Comma-separated list of nOps AWS Project IDs to filter by.
+        schema:
+          type: string
+      - name: environment
+        in: query
+        required: false
+        description: Comma-separated list of environments to filter by.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with utilization recommendations.
@@ -235,28 +253,31 @@ paths:
                 type: object
         '401':
           description: Unauthorized. Invalid or missing API key.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /svc/k8s_cost/recommendations/essentials/scheduler/utilization/summary/:
     get:
       operationId: getSchedulerUtilizationSummary
-      summary: nOps Get scheduler utilization summary
+      summary: Nops Get Scheduler Utilization Summary
       description: >-
         Retrieves a summary of utilization recommendations for the Essentials
         scheduler.
       tags:
-        - Essentials Scheduler
+      - Essentials Scheduler
       parameters:
-        - name: project_id
-          in: query
-          required: false
-          description: Comma-separated list of nOps AWS Project IDs to filter by.
-          schema:
-            type: string
-        - name: environment
-          in: query
-          required: false
-          description: Comma-separated list of environments to filter by.
-          schema:
-            type: string
+      - name: project_id
+        in: query
+        required: false
+        description: Comma-separated list of nOps AWS Project IDs to filter by.
+        schema:
+          type: string
+      - name: environment
+        in: query
+        required: false
+        description: Comma-separated list of environments to filter by.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with utilization summary.
@@ -266,16 +287,19 @@ paths:
                 type: object
         '401':
           description: Unauthorized. Invalid or missing API key.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /svc/notifications/scheduler/nops_scheduler:
     post:
       operationId: createScheduler
-      summary: nOps Create a scheduler
+      summary: Nops Create a Scheduler
       description: >-
         Creates a new scheduler for automating resource management tasks such
         as starting and stopping non-production workloads on a schedule to
         reduce costs.
       tags:
-        - Essentials Scheduler
+      - Essentials Scheduler
       requestBody:
         required: true
         content:
@@ -293,22 +317,25 @@ paths:
           description: Bad request. Invalid scheduler configuration.
         '401':
           description: Unauthorized. Invalid or missing API key.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /svc/notifications/scheduler/{id}/trigger:
     post:
       operationId: triggerScheduler
-      summary: nOps Manually trigger a scheduler
+      summary: Nops Manually Trigger a Scheduler
       description: >-
         Manually triggers a specific scheduler to run its configured actions
         immediately.
       tags:
-        - Essentials Scheduler
+      - Essentials Scheduler
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: The ID of the scheduler to trigger.
-          schema:
-            type: integer
+      - name: id
+        in: path
+        required: true
+        description: The ID of the scheduler to trigger.
+        schema:
+          type: integer
       responses:
         '200':
           description: Scheduler triggered successfully.
@@ -316,22 +343,25 @@ paths:
           description: Unauthorized. Invalid or missing API key.
         '404':
           description: Scheduler not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /svc/notifications/scheduler/{id}/enable:
     post:
       operationId: enableScheduler
-      summary: nOps Enable a scheduler
+      summary: Nops Enable a Scheduler
       description: >-
         Enables a previously disabled scheduler so it resumes running on its
         configured schedule.
       tags:
-        - Essentials Scheduler
+      - Essentials Scheduler
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: The ID of the scheduler to enable.
-          schema:
-            type: integer
+      - name: id
+        in: path
+        required: true
+        description: The ID of the scheduler to enable.
+        schema:
+          type: integer
       responses:
         '200':
           description: Scheduler enabled successfully.
@@ -339,21 +369,24 @@ paths:
           description: Unauthorized. Invalid or missing API key.
         '404':
           description: Scheduler not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /svc/notifications/scheduler/{id}/disable:
     post:
       operationId: disableScheduler
-      summary: nOps Disable a scheduler
+      summary: Nops Disable a Scheduler
       description: >-
         Disables a scheduler so it stops running on its configured schedule.
       tags:
-        - Essentials Scheduler
+      - Essentials Scheduler
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: The ID of the scheduler to disable.
-          schema:
-            type: integer
+      - name: id
+        in: path
+        required: true
+        description: The ID of the scheduler to disable.
+        schema:
+          type: integer
       responses:
         '200':
           description: Scheduler disabled successfully.
@@ -361,6 +394,9 @@ paths:
           description: Unauthorized. Invalid or missing API key.
         '404':
           description: Scheduler not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -384,91 +420,112 @@ components:
         id:
           type: integer
           description: The unique identifier of the MAP Migration project.
+          example: abc123
         name:
           type: string
           description: The name of the MAP Migration project.
+          example: Example Title
         status:
           type: string
           description: The current status of the project.
+          example: example_value
         created_at:
           type: string
           format: date-time
           description: Timestamp when the project was created.
+          example: '2026-01-15T10:30:00Z'
         updated_at:
           type: string
           format: date-time
           description: Timestamp when the project was last updated.
+          example: '2026-01-15T10:30:00Z'
     MapMigrationProduct:
       type: object
       properties:
         id:
           type: integer
           description: The unique identifier of the product.
+          example: abc123
         name:
           type: string
           description: The name of the product.
+          example: Example Title
         project_id:
           type: integer
           description: The ID of the parent MAP Migration project.
+          example: '500123'
     MapMigrationResource:
       type: object
       properties:
         id:
           type: integer
           description: The unique identifier of the resource.
+          example: abc123
         resource_type:
           type: string
           description: The type of the AWS resource.
+          example: example_value
         resource_id:
           type: string
           description: The AWS resource identifier.
+          example: '500123'
         project_id:
           type: integer
           description: The ID of the parent MAP Migration project.
+          example: '500123'
     SchedulerCreateRequest:
       type: object
       properties:
         name:
           type: string
           description: Name of the scheduler.
+          example: Example Title
         project_id:
           type: integer
           description: The nOps AWS Project ID to associate with.
+          example: '500123'
         schedule:
           type: object
           description: Schedule configuration for the scheduler.
+          example: example_value
         resources:
           type: array
           description: List of resources to manage with this scheduler.
           items:
             type: object
+          example: []
     Scheduler:
       type: object
       properties:
         id:
           type: integer
           description: The unique identifier of the scheduler.
+          example: abc123
         name:
           type: string
           description: Name of the scheduler.
+          example: Example Title
         enabled:
           type: boolean
           description: Whether the scheduler is currently enabled.
+          example: true
         project_id:
           type: integer
           description: The associated nOps AWS Project ID.
+          example: '500123'
         created_at:
           type: string
           format: date-time
           description: Timestamp when the scheduler was created.
+          example: '2026-01-15T10:30:00Z'
 tags:
-  - name: Essentials Scheduler
-    description: >-
-      Endpoints for managing the nOps Essentials scheduler, which automates
-      resource management tasks like starting and stopping non-production
-      workloads to reduce costs.
-  - name: MAP Migration
-    description: >-
-      Endpoints for managing and retrieving information about AWS Migration
-      Acceleration Program (MAP) migration projects, including projects,
-      products, and resources.
+- name: Essentials Scheduler
+  description: >-
+    Endpoints for managing the nOps Essentials scheduler, which automates
+    resource management tasks like starting and stopping non-production
+    workloads to reduce costs.
+- name: MAP Migration
+  description: >-
+    Endpoints for managing and retrieving information about AWS Migration
+    Acceleration Program (MAP) migration projects, including projects,
+    products, and resources.
