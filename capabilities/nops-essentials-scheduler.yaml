@@ -1,0 +1,408 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: nOps API — Essentials Scheduler
+  description: 'nOps API — Essentials Scheduler. 8 operations. Lead operation: Nops Get Scheduler Utilization Recommendations.
+    Self-contained Naftiko capability covering one Nops business surface.'
+  tags:
+  - Nops
+  - Essentials Scheduler
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NOPS_API_KEY: NOPS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nops-essentials-scheduler
+    baseUri: https://app.nops.io
+    description: nOps API — Essentials Scheduler business capability. Self-contained, no shared references.
+    resources:
+    - name: svc-k8s_cost-recommendations-essentials-scheduler-utilization
+      path: /svc/k8s_cost/recommendations/essentials/scheduler/utilization/
+      operations:
+      - name: getschedulerutilizationrecommendations
+        method: GET
+        description: Nops Get Scheduler Utilization Recommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sort_type
+          in: query
+          type: string
+          description: Sort order for results (asc or desc).
+        - name: project_id
+          in: query
+          type: string
+          description: Comma-separated list of nOps AWS Project IDs to filter by.
+        - name: environment
+          in: query
+          type: string
+          description: Comma-separated list of environments to filter by.
+    - name: svc-k8s_cost-recommendations-essentials-scheduler-utilization-summary
+      path: /svc/k8s_cost/recommendations/essentials/scheduler/utilization/summary/
+      operations:
+      - name: getschedulerutilizationsummary
+        method: GET
+        description: Nops Get Scheduler Utilization Summary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_id
+          in: query
+          type: string
+          description: Comma-separated list of nOps AWS Project IDs to filter by.
+        - name: environment
+          in: query
+          type: string
+          description: Comma-separated list of environments to filter by.
+    - name: svc-k8s_cost-recommendations-essentials-scheduler-workload
+      path: /svc/k8s_cost/recommendations/essentials/scheduler/workload/
+      operations:
+      - name: getschedulerworkloadrecommendations
+        method: GET
+        description: Nops Get Scheduler Workload Recommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sort_type
+          in: query
+          type: string
+          description: Sort order for results (asc or desc).
+        - name: project_id
+          in: query
+          type: string
+          description: Comma-separated list of nOps AWS Project IDs to filter by.
+        - name: environment
+          in: query
+          type: string
+          description: Comma-separated list of environments to filter by.
+    - name: svc-k8s_cost-recommendations-essentials-scheduler-workload-summary
+      path: /svc/k8s_cost/recommendations/essentials/scheduler/workload/summary/
+      operations:
+      - name: getschedulerworkloadsummary
+        method: GET
+        description: Nops Get Scheduler Workload Summary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_id
+          in: query
+          type: string
+          description: Comma-separated list of nOps AWS Project IDs to filter by.
+        - name: environment
+          in: query
+          type: string
+          description: Comma-separated list of environments to filter by.
+    - name: svc-notifications-scheduler-nops_scheduler
+      path: /svc/notifications/scheduler/nops_scheduler
+      operations:
+      - name: createscheduler
+        method: POST
+        description: Nops Create a Scheduler
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: svc-notifications-scheduler-id-disable
+      path: /svc/notifications/scheduler/{id}/disable
+      operations:
+      - name: disablescheduler
+        method: POST
+        description: Nops Disable a Scheduler
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: The ID of the scheduler to disable.
+          required: true
+    - name: svc-notifications-scheduler-id-enable
+      path: /svc/notifications/scheduler/{id}/enable
+      operations:
+      - name: enablescheduler
+        method: POST
+        description: Nops Enable a Scheduler
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: The ID of the scheduler to enable.
+          required: true
+    - name: svc-notifications-scheduler-id-trigger
+      path: /svc/notifications/scheduler/{id}/trigger
+      operations:
+      - name: triggerscheduler
+        method: POST
+        description: Nops Manually Trigger a Scheduler
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: The ID of the scheduler to trigger.
+          required: true
+    authentication:
+      type: apikey
+      key: X-Nops-Api-Key
+      value: '{{env.NOPS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: nops-essentials-scheduler-rest
+    port: 8080
+    description: REST adapter for nOps API — Essentials Scheduler. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/svc/k8s-cost/recommendations/essentials/scheduler/utilization
+      name: svc-k8s-cost-recommendations-essentials-scheduler-utilization
+      description: REST surface for svc-k8s_cost-recommendations-essentials-scheduler-utilization.
+      operations:
+      - method: GET
+        name: getschedulerutilizationrecommendations
+        description: Nops Get Scheduler Utilization Recommendations
+        call: nops-essentials-scheduler.getschedulerutilizationrecommendations
+        with:
+          sort_type: rest.sort_type
+          project_id: rest.project_id
+          environment: rest.environment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/svc/k8s-cost/recommendations/essentials/scheduler/utilization/summary
+      name: svc-k8s-cost-recommendations-essentials-scheduler-utilization-summary
+      description: REST surface for svc-k8s_cost-recommendations-essentials-scheduler-utilization-summary.
+      operations:
+      - method: GET
+        name: getschedulerutilizationsummary
+        description: Nops Get Scheduler Utilization Summary
+        call: nops-essentials-scheduler.getschedulerutilizationsummary
+        with:
+          project_id: rest.project_id
+          environment: rest.environment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/svc/k8s-cost/recommendations/essentials/scheduler/workload
+      name: svc-k8s-cost-recommendations-essentials-scheduler-workload
+      description: REST surface for svc-k8s_cost-recommendations-essentials-scheduler-workload.
+      operations:
+      - method: GET
+        name: getschedulerworkloadrecommendations
+        description: Nops Get Scheduler Workload Recommendations
+        call: nops-essentials-scheduler.getschedulerworkloadrecommendations
+        with:
+          sort_type: rest.sort_type
+          project_id: rest.project_id
+          environment: rest.environment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/svc/k8s-cost/recommendations/essentials/scheduler/workload/summary
+      name: svc-k8s-cost-recommendations-essentials-scheduler-workload-summary
+      description: REST surface for svc-k8s_cost-recommendations-essentials-scheduler-workload-summary.
+      operations:
+      - method: GET
+        name: getschedulerworkloadsummary
+        description: Nops Get Scheduler Workload Summary
+        call: nops-essentials-scheduler.getschedulerworkloadsummary
+        with:
+          project_id: rest.project_id
+          environment: rest.environment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/svc/notifications/scheduler/nops-scheduler
+      name: svc-notifications-scheduler-nops-scheduler
+      description: REST surface for svc-notifications-scheduler-nops_scheduler.
+      operations:
+      - method: POST
+        name: createscheduler
+        description: Nops Create a Scheduler
+        call: nops-essentials-scheduler.createscheduler
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/svc/notifications/scheduler/{id}/disable
+      name: svc-notifications-scheduler-id-disable
+      description: REST surface for svc-notifications-scheduler-id-disable.
+      operations:
+      - method: POST
+        name: disablescheduler
+        description: Nops Disable a Scheduler
+        call: nops-essentials-scheduler.disablescheduler
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/svc/notifications/scheduler/{id}/enable
+      name: svc-notifications-scheduler-id-enable
+      description: REST surface for svc-notifications-scheduler-id-enable.
+      operations:
+      - method: POST
+        name: enablescheduler
+        description: Nops Enable a Scheduler
+        call: nops-essentials-scheduler.enablescheduler
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/svc/notifications/scheduler/{id}/trigger
+      name: svc-notifications-scheduler-id-trigger
+      description: REST surface for svc-notifications-scheduler-id-trigger.
+      operations:
+      - method: POST
+        name: triggerscheduler
+        description: Nops Manually Trigger a Scheduler
+        call: nops-essentials-scheduler.triggerscheduler
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nops-essentials-scheduler-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for nOps API — Essentials Scheduler. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: nops-get-scheduler-utilization-recommendations
+      description: Nops Get Scheduler Utilization Recommendations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nops-essentials-scheduler.getschedulerutilizationrecommendations
+      with:
+        sort_type: tools.sort_type
+        project_id: tools.project_id
+        environment: tools.environment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nops-get-scheduler-utilization-summary
+      description: Nops Get Scheduler Utilization Summary
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nops-essentials-scheduler.getschedulerutilizationsummary
+      with:
+        project_id: tools.project_id
+        environment: tools.environment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nops-get-scheduler-workload-recommendations
+      description: Nops Get Scheduler Workload Recommendations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nops-essentials-scheduler.getschedulerworkloadrecommendations
+      with:
+        sort_type: tools.sort_type
+        project_id: tools.project_id
+        environment: tools.environment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nops-get-scheduler-workload-summary
+      description: Nops Get Scheduler Workload Summary
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nops-essentials-scheduler.getschedulerworkloadsummary
+      with:
+        project_id: tools.project_id
+        environment: tools.environment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nops-create-scheduler
+      description: Nops Create a Scheduler
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nops-essentials-scheduler.createscheduler
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nops-disable-scheduler
+      description: Nops Disable a Scheduler
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nops-essentials-scheduler.disablescheduler
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nops-enable-scheduler
+      description: Nops Enable a Scheduler
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nops-essentials-scheduler.enablescheduler
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nops-manually-trigger-scheduler
+      description: Nops Manually Trigger a Scheduler
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nops-essentials-scheduler.triggerscheduler
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

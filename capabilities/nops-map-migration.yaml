@@ -1,0 +1,198 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: nOps API — MAP Migration
+  description: 'nOps API — MAP Migration. 4 operations. Lead operation: Nops List Map Migration Projects. Self-contained Naftiko
+    capability covering one Nops business surface.'
+  tags:
+  - Nops
+  - MAP Migration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NOPS_API_KEY: NOPS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nops-map-migration
+    baseUri: https://app.nops.io
+    description: nOps API — MAP Migration business capability. Self-contained, no shared references.
+    resources:
+    - name: c-v3-map-migration
+      path: /c/v3/map-migration/
+      operations:
+      - name: listmapmigrationprojects
+        method: GET
+        description: Nops List Map Migration Projects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: c-v3-map-migration-id
+      path: /c/v3/map-migration/{id}/
+      operations:
+      - name: getmapmigrationproject
+        method: GET
+        description: Nops Retrieve a Map Migration Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: The ID of the MAP Migration project.
+          required: true
+    - name: c-v3-map-migration-id-products
+      path: /c/v3/map-migration/{id}/products/
+      operations:
+      - name: listmapmigrationproducts
+        method: GET
+        description: Nops List Products in a Map Migration Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: The ID of the MAP Migration project.
+          required: true
+    - name: c-v3-map-migration-id-resources
+      path: /c/v3/map-migration/{id}/resources/
+      operations:
+      - name: listmapmigrationresources
+        method: GET
+        description: Nops List Resources in a Map Migration Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: The ID of the MAP Migration project.
+          required: true
+    authentication:
+      type: apikey
+      key: X-Nops-Api-Key
+      value: '{{env.NOPS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: nops-map-migration-rest
+    port: 8080
+    description: REST adapter for nOps API — MAP Migration. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/c/v3/map-migration
+      name: c-v3-map-migration
+      description: REST surface for c-v3-map-migration.
+      operations:
+      - method: GET
+        name: listmapmigrationprojects
+        description: Nops List Map Migration Projects
+        call: nops-map-migration.listmapmigrationprojects
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/c/v3/map-migration/{id}
+      name: c-v3-map-migration-id
+      description: REST surface for c-v3-map-migration-id.
+      operations:
+      - method: GET
+        name: getmapmigrationproject
+        description: Nops Retrieve a Map Migration Project
+        call: nops-map-migration.getmapmigrationproject
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/c/v3/map-migration/{id}/products
+      name: c-v3-map-migration-id-products
+      description: REST surface for c-v3-map-migration-id-products.
+      operations:
+      - method: GET
+        name: listmapmigrationproducts
+        description: Nops List Products in a Map Migration Project
+        call: nops-map-migration.listmapmigrationproducts
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/c/v3/map-migration/{id}/resources
+      name: c-v3-map-migration-id-resources
+      description: REST surface for c-v3-map-migration-id-resources.
+      operations:
+      - method: GET
+        name: listmapmigrationresources
+        description: Nops List Resources in a Map Migration Project
+        call: nops-map-migration.listmapmigrationresources
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nops-map-migration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for nOps API — MAP Migration. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: nops-list-map-migration-projects
+      description: Nops List Map Migration Projects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nops-map-migration.listmapmigrationprojects
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nops-retrieve-map-migration-project
+      description: Nops Retrieve a Map Migration Project
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nops-map-migration.getmapmigrationproject
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nops-list-products-map-migration
+      description: Nops List Products in a Map Migration Project
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nops-map-migration.listmapmigrationproducts
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nops-list-resources-map-migration
+      description: Nops List Resources in a Map Migration Project
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nops-map-migration.listmapmigrationresources
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
