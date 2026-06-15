@@ -1,0 +1,2333 @@
+{
+  "item": [
+    {
+      "id": "e4e7785d-1dd7-478a-bff8-ad7144a02cef",
+      "name": "Essentials Scheduler",
+      "description": {
+        "content": "Endpoints for managing the nOps Essentials scheduler, which automates resource management tasks like starting and stopping non-production workloads to reduce costs.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5efd2438-6267-4270-98cb-ec88fed04597",
+          "name": "Nops Get Scheduler Workload Recommendations",
+          "request": {
+            "name": "Nops Get Scheduler Workload Recommendations",
+            "description": {
+              "content": "Retrieves workload recommendations for the Essentials scheduler, including suggestions for scheduling non-production workloads to reduce costs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "svc",
+                "k8s_cost",
+                "recommendations",
+                "essentials",
+                "scheduler",
+                "workload",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sort_type",
+                  "value": "<string>",
+                  "description": "Sort order for results (asc or desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>",
+                  "description": "Comma-separated list of nOps AWS Project IDs to filter by."
+                },
+                {
+                  "disabled": false,
+                  "key": "environment",
+                  "value": "<string>",
+                  "description": "Comma-separated list of environments to filter by."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fd29188-e8c0-484b-b705-5baad3e230bb",
+              "name": "Successful response with workload recommendations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "k8s_cost",
+                    "recommendations",
+                    "essentials",
+                    "scheduler",
+                    "workload",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4075032e-8b98-4595-b410-a60bb3671a8e",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "k8s_cost",
+                    "recommendations",
+                    "essentials",
+                    "scheduler",
+                    "workload",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4a341ac-5c0f-4889-8f56-59300131f44d",
+          "name": "Nops Get Scheduler Workload Summary",
+          "request": {
+            "name": "Nops Get Scheduler Workload Summary",
+            "description": {
+              "content": "Retrieves a summary of workload recommendations for the Essentials scheduler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "svc",
+                "k8s_cost",
+                "recommendations",
+                "essentials",
+                "scheduler",
+                "workload",
+                "summary",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>",
+                  "description": "Comma-separated list of nOps AWS Project IDs to filter by."
+                },
+                {
+                  "disabled": false,
+                  "key": "environment",
+                  "value": "<string>",
+                  "description": "Comma-separated list of environments to filter by."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15058b8a-40cc-414d-8bda-56808f70d0ba",
+              "name": "Successful response with workload summary.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "k8s_cost",
+                    "recommendations",
+                    "essentials",
+                    "scheduler",
+                    "workload",
+                    "summary",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9285d058-24c4-4c4a-a915-4e4b17d1a9b1",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "k8s_cost",
+                    "recommendations",
+                    "essentials",
+                    "scheduler",
+                    "workload",
+                    "summary",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eadb6954-1885-4924-b656-017c140c1223",
+          "name": "Nops Get Scheduler Utilization Recommendations",
+          "request": {
+            "name": "Nops Get Scheduler Utilization Recommendations",
+            "description": {
+              "content": "Retrieves utilization-based recommendations for the Essentials scheduler, identifying idle or underutilized resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "svc",
+                "k8s_cost",
+                "recommendations",
+                "essentials",
+                "scheduler",
+                "utilization",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sort_type",
+                  "value": "<string>",
+                  "description": "Sort order for results (asc or desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>",
+                  "description": "Comma-separated list of nOps AWS Project IDs to filter by."
+                },
+                {
+                  "disabled": false,
+                  "key": "environment",
+                  "value": "<string>",
+                  "description": "Comma-separated list of environments to filter by."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e910df0d-3804-4bc4-840f-aeb4ca42f6e2",
+              "name": "Successful response with utilization recommendations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "k8s_cost",
+                    "recommendations",
+                    "essentials",
+                    "scheduler",
+                    "utilization",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "955ff866-d66e-4399-92b5-41dd73126053",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "k8s_cost",
+                    "recommendations",
+                    "essentials",
+                    "scheduler",
+                    "utilization",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c298652c-620e-4169-ab25-939ea21d6d8c",
+          "name": "Nops Get Scheduler Utilization Summary",
+          "request": {
+            "name": "Nops Get Scheduler Utilization Summary",
+            "description": {
+              "content": "Retrieves a summary of utilization recommendations for the Essentials scheduler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "svc",
+                "k8s_cost",
+                "recommendations",
+                "essentials",
+                "scheduler",
+                "utilization",
+                "summary",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>",
+                  "description": "Comma-separated list of nOps AWS Project IDs to filter by."
+                },
+                {
+                  "disabled": false,
+                  "key": "environment",
+                  "value": "<string>",
+                  "description": "Comma-separated list of environments to filter by."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ca47f3b-7269-4f2e-9c0d-bf1003fa85ec",
+              "name": "Successful response with utilization summary.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "k8s_cost",
+                    "recommendations",
+                    "essentials",
+                    "scheduler",
+                    "utilization",
+                    "summary",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e30ed66d-4df8-4dc6-b352-dc5649a316d5",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "k8s_cost",
+                    "recommendations",
+                    "essentials",
+                    "scheduler",
+                    "utilization",
+                    "summary",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34936c17-36b0-41f8-8f75-0fb2fddc6d53",
+          "name": "Nops Create a Scheduler",
+          "request": {
+            "name": "Nops Create a Scheduler",
+            "description": {
+              "content": "Creates a new scheduler for automating resource management tasks such as starting and stopping non-production workloads on a schedule to reduce costs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "svc",
+                "notifications",
+                "scheduler",
+                "nops_scheduler"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"project_id\": \"<integer>\",\n  \"schedule\": \"<object>\",\n  \"resources\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19e03f3d-9d19-425d-8db2-aa8e53a4ee31",
+              "name": "Scheduler created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    "nops_scheduler"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Title\",\n  \"project_id\": \"<integer>\",\n  \"schedule\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4981,\n  \"name\": \"Example Title\",\n  \"enabled\": true,\n  \"project_id\": 2728,\n  \"created_at\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f4f5c66-fc64-4ee1-b82e-db9d055a43f1",
+              "name": "Bad request. Invalid scheduler configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    "nops_scheduler"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Title\",\n  \"project_id\": \"<integer>\",\n  \"schedule\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20fc7bbe-a545-48cd-8bac-04b970250c64",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    "nops_scheduler"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Title\",\n  \"project_id\": \"<integer>\",\n  \"schedule\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ec96e52-aefd-4c0a-a516-3f5b2feddefa",
+          "name": "Nops Manually Trigger a Scheduler",
+          "request": {
+            "name": "Nops Manually Trigger a Scheduler",
+            "description": {
+              "content": "Manually triggers a specific scheduler to run its configured actions immediately.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "svc",
+                "notifications",
+                "scheduler",
+                ":id",
+                "trigger"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The ID of the scheduler to trigger."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57c153bb-a0fc-41c6-aee3-894b6a7a1885",
+              "name": "Scheduler triggered successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    ":id",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the scheduler to trigger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cbccdd41-240c-43d1-9aa0-ec6419335f6d",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    ":id",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the scheduler to trigger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "659deb96-2033-4c8d-804e-46f1665042a7",
+              "name": "Scheduler not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    ":id",
+                    "trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the scheduler to trigger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0e15788-fdda-4d02-b10f-8caceb34ac07",
+          "name": "Nops Enable a Scheduler",
+          "request": {
+            "name": "Nops Enable a Scheduler",
+            "description": {
+              "content": "Enables a previously disabled scheduler so it resumes running on its configured schedule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "svc",
+                "notifications",
+                "scheduler",
+                ":id",
+                "enable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The ID of the scheduler to enable."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a328fa2f-a8e6-4973-9c4d-ef28dd37649d",
+              "name": "Scheduler enabled successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    ":id",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the scheduler to enable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed29a9bb-93c3-4c70-82db-9fe7ed82fae4",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    ":id",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the scheduler to enable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0c07e71-fa0a-4489-b8d8-eaaa40913fac",
+              "name": "Scheduler not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    ":id",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the scheduler to enable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f349d4ff-8ed5-4b4f-8c6a-98dd9e3702b5",
+          "name": "Nops Disable a Scheduler",
+          "request": {
+            "name": "Nops Disable a Scheduler",
+            "description": {
+              "content": "Disables a scheduler so it stops running on its configured schedule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "svc",
+                "notifications",
+                "scheduler",
+                ":id",
+                "disable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The ID of the scheduler to disable."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1a7b78a-d68a-4fb4-9cac-fda951ad8c3d",
+              "name": "Scheduler disabled successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    ":id",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the scheduler to disable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee777461-c4f4-4618-a86d-11ac433c9b42",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    ":id",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the scheduler to disable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "da9c0779-905f-409e-9d0c-371e4efbb8a5",
+              "name": "Scheduler not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svc",
+                    "notifications",
+                    "scheduler",
+                    ":id",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the scheduler to disable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7576670d-0dac-4ced-8479-11a36f618280",
+      "name": "MAP Migration",
+      "description": {
+        "content": "Endpoints for managing and retrieving information about AWS Migration Acceleration Program (MAP) migration projects, including projects, products, and resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b6cc138c-b805-4912-8691-916fc736219b",
+          "name": "Nops List Map Migration Projects",
+          "request": {
+            "name": "Nops List Map Migration Projects",
+            "description": {
+              "content": "Lists all MAP Migration projects for the current client. Returns a JSON array containing all MAP Migration projects signed by the customer with AWS.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "c",
+                "v3",
+                "map-migration",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82f0f7eb-6b43-4899-a1e8-7a2bd7c2acbb",
+              "name": "Successful response with list of MAP migration projects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9658,\n    \"name\": \"Example Title\",\n    \"status\": \"example_value\",\n    \"created_at\": \"2026-01-15T10:30:00Z\",\n    \"updated_at\": \"2026-01-15T10:30:00Z\"\n  },\n  {\n    \"id\": 4248,\n    \"name\": \"Example Title\",\n    \"status\": \"example_value\",\n    \"created_at\": \"2026-01-15T10:30:00Z\",\n    \"updated_at\": \"2026-01-15T10:30:00Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fba7fdf-5501-42a7-bad1-5e5d4628f95b",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "af012987-3557-49cf-b426-5516e49b5cc2",
+              "name": "Forbidden. Insufficient permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "514a317d-90c0-444d-91d8-b811d86aee93",
+          "name": "Nops Retrieve a Map Migration Project",
+          "request": {
+            "name": "Nops Retrieve a Map Migration Project",
+            "description": {
+              "content": "Retrieves details of a specific MAP migration project by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "c",
+                "v3",
+                "map-migration",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The ID of the MAP Migration project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22b3efbb-802e-443d-a1a0-1553ce2d5862",
+              "name": "Successful response with project details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the MAP Migration project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6305,\n  \"name\": \"Example Title\",\n  \"status\": \"example_value\",\n  \"created_at\": \"2026-01-15T10:30:00Z\",\n  \"updated_at\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd604d6d-3c76-4bc5-8bca-a1531b342ec4",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the MAP Migration project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23109239-a962-45f1-81be-a78ad035640c",
+              "name": "MAP migration project not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the MAP Migration project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f57b63d-b86d-48c6-9c36-fb440d481325",
+          "name": "Nops List Products in a Map Migration Project",
+          "request": {
+            "name": "Nops List Products in a Map Migration Project",
+            "description": {
+              "content": "Lists all products within a specific MAP migration project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "c",
+                "v3",
+                "map-migration",
+                ":id",
+                "products",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The ID of the MAP Migration project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d224bdc0-f275-4b4c-8ef6-59005eb4d65d",
+              "name": "Successful response with list of products.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ":id",
+                    "products",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the MAP Migration project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8527,\n    \"name\": \"Example Title\",\n    \"project_id\": 5628\n  },\n  {\n    \"id\": 4850,\n    \"name\": \"Example Title\",\n    \"project_id\": 2990\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb220676-3f5f-4d48-b6d9-da244884ca60",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ":id",
+                    "products",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the MAP Migration project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c780830c-c741-4f28-ab1e-f2b43833402b",
+              "name": "MAP migration project not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ":id",
+                    "products",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the MAP Migration project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a3f56f0-342e-4313-b724-4211b7600858",
+          "name": "Nops List Resources in a Map Migration Project",
+          "request": {
+            "name": "Nops List Resources in a Map Migration Project",
+            "description": {
+              "content": "Lists the resources within a specific MAP migration project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "c",
+                "v3",
+                "map-migration",
+                ":id",
+                "resources",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The ID of the MAP Migration project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c2736b1-821a-4921-a4d7-a55adbe25cae",
+              "name": "Successful response with list of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ":id",
+                    "resources",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the MAP Migration project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9651,\n    \"resource_type\": \"example_value\",\n    \"resource_id\": \"500123\",\n    \"project_id\": 5924\n  },\n  {\n    \"id\": 2888,\n    \"resource_type\": \"example_value\",\n    \"resource_id\": \"500123\",\n    \"project_id\": 9659\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42d9592c-f2b4-4ae3-9819-2e00d5da602a",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ":id",
+                    "resources",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the MAP Migration project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b8a821bf-29a1-416b-8651-ec13aeed6822",
+              "name": "MAP migration project not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "c",
+                    "v3",
+                    "map-migration",
+                    ":id",
+                    "resources",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the MAP Migration project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Nops-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nops.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Nops-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "202a7c99-43e2-40c2-9232-d21187e72fea",
+    "name": "nOps API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The nOps public API provides programmatic access to cloud cost and usage insights, MAP migration project management, and essentials scheduler operations. It enables teams to monitor and analyze AWS environments, automate cost optimization tasks, and integrate nOps data into existing analytics tools and monitoring systems outside of the nOps dashboard.\n\nContact Support:\n Name: nOps Support",
+      "type": "text/plain"
+    }
+  }
+}

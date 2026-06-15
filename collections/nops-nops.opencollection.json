@@ -1,0 +1,286 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "nOps API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Nops-Api-Key",
+      "value": "{{X-Nops-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MAP Migration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nops List Map Migration Projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/c/v3/map-migration/"
+          },
+          "docs": "Lists all MAP Migration projects for the current client. Returns a JSON array containing all MAP Migration projects signed by the customer with AWS."
+        },
+        {
+          "info": {
+            "name": "Nops Retrieve a Map Migration Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/c/v3/map-migration/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the MAP Migration project."
+              }
+            ]
+          },
+          "docs": "Retrieves details of a specific MAP migration project by its ID."
+        },
+        {
+          "info": {
+            "name": "Nops List Products in a Map Migration Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/c/v3/map-migration/:id/products/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the MAP Migration project."
+              }
+            ]
+          },
+          "docs": "Lists all products within a specific MAP migration project."
+        },
+        {
+          "info": {
+            "name": "Nops List Resources in a Map Migration Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/c/v3/map-migration/:id/resources/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the MAP Migration project."
+              }
+            ]
+          },
+          "docs": "Lists the resources within a specific MAP migration project."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Essentials Scheduler",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nops Get Scheduler Workload Recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/svc/k8s_cost/recommendations/essentials/scheduler/workload/",
+            "params": [
+              {
+                "name": "sort_type",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results (asc or desc)."
+              },
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of nOps AWS Project IDs to filter by."
+              },
+              {
+                "name": "environment",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of environments to filter by."
+              }
+            ]
+          },
+          "docs": "Retrieves workload recommendations for the Essentials scheduler, including suggestions for scheduling non-production workloads to reduce costs."
+        },
+        {
+          "info": {
+            "name": "Nops Get Scheduler Workload Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/svc/k8s_cost/recommendations/essentials/scheduler/workload/summary/",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of nOps AWS Project IDs to filter by."
+              },
+              {
+                "name": "environment",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of environments to filter by."
+              }
+            ]
+          },
+          "docs": "Retrieves a summary of workload recommendations for the Essentials scheduler."
+        },
+        {
+          "info": {
+            "name": "Nops Get Scheduler Utilization Recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/svc/k8s_cost/recommendations/essentials/scheduler/utilization/",
+            "params": [
+              {
+                "name": "sort_type",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results (asc or desc)."
+              },
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of nOps AWS Project IDs to filter by."
+              },
+              {
+                "name": "environment",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of environments to filter by."
+              }
+            ]
+          },
+          "docs": "Retrieves utilization-based recommendations for the Essentials scheduler, identifying idle or underutilized resources."
+        },
+        {
+          "info": {
+            "name": "Nops Get Scheduler Utilization Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/svc/k8s_cost/recommendations/essentials/scheduler/utilization/summary/",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of nOps AWS Project IDs to filter by."
+              },
+              {
+                "name": "environment",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of environments to filter by."
+              }
+            ]
+          },
+          "docs": "Retrieves a summary of utilization recommendations for the Essentials scheduler."
+        },
+        {
+          "info": {
+            "name": "Nops Create a Scheduler",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nops.io/svc/notifications/scheduler/nops_scheduler",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new scheduler for automating resource management tasks such as starting and stopping non-production workloads on a schedule to reduce costs."
+        },
+        {
+          "info": {
+            "name": "Nops Manually Trigger a Scheduler",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nops.io/svc/notifications/scheduler/:id/trigger",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the scheduler to trigger."
+              }
+            ]
+          },
+          "docs": "Manually triggers a specific scheduler to run its configured actions immediately."
+        },
+        {
+          "info": {
+            "name": "Nops Enable a Scheduler",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nops.io/svc/notifications/scheduler/:id/enable",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the scheduler to enable."
+              }
+            ]
+          },
+          "docs": "Enables a previously disabled scheduler so it resumes running on its configured schedule."
+        },
+        {
+          "info": {
+            "name": "Nops Disable a Scheduler",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nops.io/svc/notifications/scheduler/:id/disable",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the scheduler to disable."
+              }
+            ]
+          },
+          "docs": "Disables a scheduler so it stops running on its configured schedule."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
