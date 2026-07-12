@@ -51,6 +51,10 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: DomainSecurity
+    url: security/nops-domain-security.yml
+  - type: Authentication
+    url: authentication/nops-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/nops-io
   - type: LinkedIn

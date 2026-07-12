@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/nops-nops-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-Nops-Api-Key
+  description: API key generated from the nOps console under Organization Settings. Include
+    this key in the X-Nops-Api-Key header for all requests.
+  sources:
+  - openapi/nops-nops-openapi.yml
+- name: SignatureAuth
+  type: apiKey
+  in: header
+  parameter: x-nops-signature
+  description: Encoded signature for enhanced security. Created using a public/private key pair
+    configured in the nOps console.
+  sources:
+  - openapi/nops-nops-openapi.yml
