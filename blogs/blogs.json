@@ -3,19 +3,16 @@
   "feeds": [
     {
       "source": "https://www.nops.io/feed/",
-      "feed_url": "https://www.nops.io/feed/",
-      "title": "",
-      "saved": 5,
-      "method": "feed"
+      "error": "HTTPError"
     },
     {
       "source": "https://www.nops.io/blog/",
-      "feed_url": "https://www.nops.io/feed/",
+      "feed_url": "https://www.nops.io/blog/",
       "title": "",
       "saved": 0,
-      "method": "discovered"
+      "method": "none"
     }
   ],
-  "post_count": 22,
-  "fetched": "2026-06-27T12:03:07Z"
+  "post_count": 25,
+  "fetched": "2026-07-11T11:50:51Z"
 }
