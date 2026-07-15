@@ -1,0 +1,161 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/nops-nops-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 12
+  by_action_class:
+    connected: 8
+    acting: 4
+  by_consequence:
+    read: 8
+    write: 3
+    safety-critical: 1
+  human_in_the_loop_required: 1
+operations:
+- path: /c/v3/map-migration/
+  method: get
+  operationId: listMapMigrationProjects
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /c/v3/map-migration/{id}/
+  method: get
+  operationId: getMapMigrationProject
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /c/v3/map-migration/{id}/products/
+  method: get
+  operationId: listMapMigrationProducts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /c/v3/map-migration/{id}/resources/
+  method: get
+  operationId: listMapMigrationResources
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /svc/k8s_cost/recommendations/essentials/scheduler/workload/
+  method: get
+  operationId: getSchedulerWorkloadRecommendations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /svc/k8s_cost/recommendations/essentials/scheduler/workload/summary/
+  method: get
+  operationId: getSchedulerWorkloadSummary
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /svc/k8s_cost/recommendations/essentials/scheduler/utilization/
+  method: get
+  operationId: getSchedulerUtilizationRecommendations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /svc/k8s_cost/recommendations/essentials/scheduler/utilization/summary/
+  method: get
+  operationId: getSchedulerUtilizationSummary
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /svc/notifications/scheduler/nops_scheduler
+  method: post
+  operationId: createScheduler
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /svc/notifications/scheduler/{id}/trigger
+  method: post
+  operationId: triggerScheduler
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /svc/notifications/scheduler/{id}/enable
+  method: post
+  operationId: enableScheduler
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /svc/notifications/scheduler/{id}/disable
+  method: post
+  operationId: disableScheduler
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
