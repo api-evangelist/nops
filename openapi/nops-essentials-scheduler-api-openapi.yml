@@ -1,12 +1,7 @@
 openapi: 3.1.0
 info:
-  title: nOps API
-  description: >-
-    The nOps public API provides programmatic access to cloud cost and usage
-    insights, MAP migration project management, and essentials scheduler
-    operations. It enables teams to monitor and analyze AWS environments,
-    automate cost optimization tasks, and integrate nOps data into existing
-    analytics tools and monitoring systems outside of the nOps dashboard.
+  title: nOps Essentials Scheduler API
+  description: The nOps public API provides programmatic access to cloud cost and usage insights, MAP migration project management, and essentials scheduler operations. It enables teams to monitor and analyze AWS environments, automate cost optimization tasks, and integrate nOps data into existing analytics tools and monitoring systems outside of the nOps dashboard.
   version: 1.0.0
   contact:
     name: nOps Support
@@ -17,132 +12,15 @@ servers:
   description: nOps Production API
 security:
 - ApiKeyAuth: []
+tags:
+- name: Essentials Scheduler
+  description: Endpoints for managing the nOps Essentials scheduler, which automates resource management tasks like starting and stopping non-production workloads to reduce costs.
 paths:
-  /c/v3/map-migration/:
-    get:
-      operationId: listMapMigrationProjects
-      summary: Nops List Map Migration Projects
-      description: >-
-        Lists all MAP Migration projects for the current client. Returns a JSON
-        array containing all MAP Migration projects signed by the customer with
-        AWS.
-      tags:
-      - MAP Migration
-      responses:
-        '200':
-          description: Successful response with list of MAP migration projects.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MapMigrationProject'
-        '401':
-          description: Unauthorized. Invalid or missing API key.
-        '403':
-          description: Forbidden. Insufficient permissions.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /c/v3/map-migration/{id}/:
-    get:
-      operationId: getMapMigrationProject
-      summary: Nops Retrieve a Map Migration Project
-      description: >-
-        Retrieves details of a specific MAP migration project by its ID.
-      tags:
-      - MAP Migration
-      parameters:
-      - name: id
-        in: path
-        required: true
-        description: The ID of the MAP Migration project.
-        schema:
-          type: integer
-      responses:
-        '200':
-          description: Successful response with project details.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MapMigrationProject'
-        '401':
-          description: Unauthorized. Invalid or missing API key.
-        '404':
-          description: MAP migration project not found.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /c/v3/map-migration/{id}/products/:
-    get:
-      operationId: listMapMigrationProducts
-      summary: Nops List Products in a Map Migration Project
-      description: >-
-        Lists all products within a specific MAP migration project.
-      tags:
-      - MAP Migration
-      parameters:
-      - name: id
-        in: path
-        required: true
-        description: The ID of the MAP Migration project.
-        schema:
-          type: integer
-      responses:
-        '200':
-          description: Successful response with list of products.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MapMigrationProduct'
-        '401':
-          description: Unauthorized. Invalid or missing API key.
-        '404':
-          description: MAP migration project not found.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /c/v3/map-migration/{id}/resources/:
-    get:
-      operationId: listMapMigrationResources
-      summary: Nops List Resources in a Map Migration Project
-      description: >-
-        Lists the resources within a specific MAP migration project.
-      tags:
-      - MAP Migration
-      parameters:
-      - name: id
-        in: path
-        required: true
-        description: The ID of the MAP Migration project.
-        schema:
-          type: integer
-      responses:
-        '200':
-          description: Successful response with list of resources.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MapMigrationResource'
-        '401':
-          description: Unauthorized. Invalid or missing API key.
-        '404':
-          description: MAP migration project not found.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
   /svc/k8s_cost/recommendations/essentials/scheduler/workload/:
     get:
       operationId: getSchedulerWorkloadRecommendations
       summary: Nops Get Scheduler Workload Recommendations
-      description: >-
-        Retrieves workload recommendations for the Essentials scheduler,
-        including suggestions for scheduling non-production workloads to
-        reduce costs.
+      description: Retrieves workload recommendations for the Essentials scheduler, including suggestions for scheduling non-production workloads to reduce costs.
       tags:
       - Essentials Scheduler
       parameters:
@@ -183,9 +61,7 @@ paths:
     get:
       operationId: getSchedulerWorkloadSummary
       summary: Nops Get Scheduler Workload Summary
-      description: >-
-        Retrieves a summary of workload recommendations for the Essentials
-        scheduler.
+      description: Retrieves a summary of workload recommendations for the Essentials scheduler.
       tags:
       - Essentials Scheduler
       parameters:
@@ -217,9 +93,7 @@ paths:
     get:
       operationId: getSchedulerUtilizationRecommendations
       summary: Nops Get Scheduler Utilization Recommendations
-      description: >-
-        Retrieves utilization-based recommendations for the Essentials
-        scheduler, identifying idle or underutilized resources.
+      description: Retrieves utilization-based recommendations for the Essentials scheduler, identifying idle or underutilized resources.
       tags:
       - Essentials Scheduler
       parameters:
@@ -260,9 +134,7 @@ paths:
     get:
       operationId: getSchedulerUtilizationSummary
       summary: Nops Get Scheduler Utilization Summary
-      description: >-
-        Retrieves a summary of utilization recommendations for the Essentials
-        scheduler.
+      description: Retrieves a summary of utilization recommendations for the Essentials scheduler.
       tags:
       - Essentials Scheduler
       parameters:
@@ -294,10 +166,7 @@ paths:
     post:
       operationId: createScheduler
       summary: Nops Create a Scheduler
-      description: >-
-        Creates a new scheduler for automating resource management tasks such
-        as starting and stopping non-production workloads on a schedule to
-        reduce costs.
+      description: Creates a new scheduler for automating resource management tasks such as starting and stopping non-production workloads on a schedule to reduce costs.
       tags:
       - Essentials Scheduler
       requestBody:
@@ -324,9 +193,7 @@ paths:
     post:
       operationId: triggerScheduler
       summary: Nops Manually Trigger a Scheduler
-      description: >-
-        Manually triggers a specific scheduler to run its configured actions
-        immediately.
+      description: Manually triggers a specific scheduler to run its configured actions immediately.
       tags:
       - Essentials Scheduler
       parameters:
@@ -350,9 +217,7 @@ paths:
     post:
       operationId: enableScheduler
       summary: Nops Enable a Scheduler
-      description: >-
-        Enables a previously disabled scheduler so it resumes running on its
-        configured schedule.
+      description: Enables a previously disabled scheduler so it resumes running on its configured schedule.
       tags:
       - Essentials Scheduler
       parameters:
@@ -376,8 +241,7 @@ paths:
     post:
       operationId: disableScheduler
       summary: Nops Disable a Scheduler
-      description: >-
-        Disables a scheduler so it stops running on its configured schedule.
+      description: Disables a scheduler so it stops running on its configured schedule.
       tags:
       - Essentials Scheduler
       parameters:
@@ -398,81 +262,7 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: X-Nops-Api-Key
-      description: >-
-        API key generated from the nOps console under Organization Settings.
-        Include this key in the X-Nops-Api-Key header for all requests.
-    SignatureAuth:
-      type: apiKey
-      in: header
-      name: x-nops-signature
-      description: >-
-        Encoded signature for enhanced security. Created using a public/private
-        key pair configured in the nOps console.
   schemas:
-    MapMigrationProject:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The unique identifier of the MAP Migration project.
-          example: abc123
-        name:
-          type: string
-          description: The name of the MAP Migration project.
-          example: Example Title
-        status:
-          type: string
-          description: The current status of the project.
-          example: example_value
-        created_at:
-          type: string
-          format: date-time
-          description: Timestamp when the project was created.
-          example: '2026-01-15T10:30:00Z'
-        updated_at:
-          type: string
-          format: date-time
-          description: Timestamp when the project was last updated.
-          example: '2026-01-15T10:30:00Z'
-    MapMigrationProduct:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The unique identifier of the product.
-          example: abc123
-        name:
-          type: string
-          description: The name of the product.
-          example: Example Title
-        project_id:
-          type: integer
-          description: The ID of the parent MAP Migration project.
-          example: '500123'
-    MapMigrationResource:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The unique identifier of the resource.
-          example: abc123
-        resource_type:
-          type: string
-          description: The type of the AWS resource.
-          example: example_value
-        resource_id:
-          type: string
-          description: The AWS resource identifier.
-          example: '500123'
-        project_id:
-          type: integer
-          description: The ID of the parent MAP Migration project.
-          example: '500123'
     SchedulerCreateRequest:
       type: object
       properties:
@@ -518,14 +308,14 @@ components:
           format: date-time
           description: Timestamp when the scheduler was created.
           example: '2026-01-15T10:30:00Z'
-tags:
-- name: Essentials Scheduler
-  description: >-
-    Endpoints for managing the nOps Essentials scheduler, which automates
-    resource management tasks like starting and stopping non-production
-    workloads to reduce costs.
-- name: MAP Migration
-  description: >-
-    Endpoints for managing and retrieving information about AWS Migration
-    Acceleration Program (MAP) migration projects, including projects,
-    products, and resources.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Nops-Api-Key
+      description: API key generated from the nOps console under Organization Settings. Include this key in the X-Nops-Api-Key header for all requests.
+    SignatureAuth:
+      type: apiKey
+      in: header
+      name: x-nops-signature
+      description: Encoded signature for enhanced security. Created using a public/private key pair configured in the nOps console.
