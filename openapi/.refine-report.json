@@ -1,0 +1,16 @@
+{
+  "provider": "nops",
+  "sources": [
+    "nops-essentials-scheduler-api-openapi.yml",
+    "nops-map-migration-api-openapi.yml"
+  ],
+  "outputs": [
+    "nops-essentials-scheduler-api-openapi.yml",
+    "nops-map-migration-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
