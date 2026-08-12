@@ -14,8 +14,6 @@ apis:
   - type: OpenAPI
     url: openapi/nops-essentials-scheduler-api-openapi.yml
   - type: Documentation
-    url: ' https://www.nops.io/'
-  - type: Documentation
     url: https://app.nops.io/public_redoc/
   - type: JSONSchema
     url: json-schema/map-migration-project.json
@@ -39,8 +37,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/nops-map-migration-api-openapi.yml
-  - type: Documentation
-    url: ' https://www.nops.io/'
   - type: Documentation
     url: https://app.nops.io/public_redoc/
   - type: JSONSchema
