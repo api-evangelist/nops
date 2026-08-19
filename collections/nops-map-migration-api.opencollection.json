@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "nOps Essentials Scheduler MAP Migration API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Nops-Api-Key",
+      "value": "{{X-Nops-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MAP Migration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nops List Map Migration Projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/c/v3/map-migration/"
+          },
+          "docs": "Lists all MAP Migration projects for the current client. Returns a JSON array containing all MAP Migration projects signed by the customer with AWS."
+        },
+        {
+          "info": {
+            "name": "Nops Retrieve a Map Migration Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/c/v3/map-migration/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the MAP Migration project."
+              }
+            ]
+          },
+          "docs": "Retrieves details of a specific MAP migration project by its ID."
+        },
+        {
+          "info": {
+            "name": "Nops List Products in a Map Migration Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/c/v3/map-migration/:id/products/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the MAP Migration project."
+              }
+            ]
+          },
+          "docs": "Lists all products within a specific MAP migration project."
+        },
+        {
+          "info": {
+            "name": "Nops List Resources in a Map Migration Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nops.io/c/v3/map-migration/:id/resources/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the MAP Migration project."
+              }
+            ]
+          },
+          "docs": "Lists the resources within a specific MAP migration project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
