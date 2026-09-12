@@ -94,6 +94,8 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.23'
 common:
+  - type: Website
+    url: https://www.nops.io/
   - type: AgenticAccess
     url: agentic-access/nops-agentic-access.yml
   - type: DomainSecurity
