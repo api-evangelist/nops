@@ -1,0 +1,31 @@
+# Front Door AI Index — nops — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: nops
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.nops.io
+  final_host: www.nops.io
+  ownership: own
+  owner: nops
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 15
+  host_score: 15
+  density: 15.34
+  words: 978
+  tiers:
+    agentic: 1
+    core: 9
+    model: 5
+  ambiguous: 3
+  top_terms:
+    AI: 9
+    Claude: 3
+    agent: 2
+    AI agent: 1
+    Bedrock: 1
+    OpenAI: 1
+    automation: 1

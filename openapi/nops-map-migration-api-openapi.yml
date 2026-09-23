@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: nOps Essentials Scheduler MAP Migration API
+  title: nOps MAP Migration API
   description: The nOps public API provides programmatic access to cloud cost and usage insights, MAP migration project management, and essentials scheduler operations. It enables teams to monitor and analyze AWS environments, automate cost optimization tasks, and integrate nOps data into existing analytics tools and monitoring systems outside of the nOps dashboard.
   version: 1.0.0
   contact:
@@ -129,21 +129,17 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    MapMigrationResource:
+    MapMigrationProduct:
       type: object
       properties:
         id:
           type: integer
-          description: The unique identifier of the resource.
+          description: The unique identifier of the product.
           example: abc123
-        resource_type:
+        name:
           type: string
-          description: The type of the AWS resource.
-          example: example_value
-        resource_id:
-          type: string
-          description: The AWS resource identifier.
-          example: '500123'
+          description: The name of the product.
+          example: Example Title
         project_id:
           type: integer
           description: The ID of the parent MAP Migration project.
@@ -173,17 +169,21 @@ components:
           format: date-time
           description: Timestamp when the project was last updated.
           example: '2026-01-15T10:30:00Z'
-    MapMigrationProduct:
+    MapMigrationResource:
       type: object
       properties:
         id:
           type: integer
-          description: The unique identifier of the product.
+          description: The unique identifier of the resource.
           example: abc123
-        name:
+        resource_type:
           type: string
-          description: The name of the product.
-          example: Example Title
+          description: The type of the AWS resource.
+          example: example_value
+        resource_id:
+          type: string
+          description: The AWS resource identifier.
+          example: '500123'
         project_id:
           type: integer
           description: The ID of the parent MAP Migration project.
