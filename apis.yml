@@ -6,7 +6,7 @@ apis:
   description: >-
     Endpoints for managing the nOps Essentials scheduler, which automates resource management tasks like
     starting and stopping non-production workloads to reduce costs.
-  humanURL: ' https://www.nops.io/'
+  humanURL: https://www.nops.io/
   baseURL: https://app.nops.io
   tags:
   - Essentials Scheduler
@@ -30,7 +30,7 @@ apis:
   description: >-
     Endpoints for managing and retrieving information about AWS Migration Acceleration Program (MAP) migration
     projects, including projects, products, and resources.
-  humanURL: ' https://www.nops.io/'
+  humanURL: https://www.nops.io/
   baseURL: https://app.nops.io
   tags:
   - MAP Migration
