@@ -263,6 +263,27 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    SchedulerCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the scheduler.
+          example: Example Title
+        project_id:
+          type: integer
+          description: The nOps AWS Project ID to associate with.
+          example: '500123'
+        schedule:
+          type: object
+          description: Schedule configuration for the scheduler.
+          example: example_value
+        resources:
+          type: array
+          description: List of resources to manage with this scheduler.
+          items:
+            type: object
+          example: []
     Scheduler:
       type: object
       properties:
@@ -287,27 +308,6 @@ components:
           format: date-time
           description: Timestamp when the scheduler was created.
           example: '2026-01-15T10:30:00Z'
-    SchedulerCreateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the scheduler.
-          example: Example Title
-        project_id:
-          type: integer
-          description: The nOps AWS Project ID to associate with.
-          example: '500123'
-        schedule:
-          type: object
-          description: Schedule configuration for the scheduler.
-          example: example_value
-        resources:
-          type: array
-          description: List of resources to manage with this scheduler.
-          items:
-            type: object
-          example: []
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
