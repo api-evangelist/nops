@@ -144,6 +144,25 @@ components:
           type: integer
           description: The ID of the parent MAP Migration project.
           example: '500123'
+    MapMigrationResource:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the resource.
+          example: abc123
+        resource_type:
+          type: string
+          description: The type of the AWS resource.
+          example: example_value
+        resource_id:
+          type: string
+          description: The AWS resource identifier.
+          example: '500123'
+        project_id:
+          type: integer
+          description: The ID of the parent MAP Migration project.
+          example: '500123'
     MapMigrationProject:
       type: object
       properties:
@@ -169,25 +188,6 @@ components:
           format: date-time
           description: Timestamp when the project was last updated.
           example: '2026-01-15T10:30:00Z'
-    MapMigrationResource:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The unique identifier of the resource.
-          example: abc123
-        resource_type:
-          type: string
-          description: The type of the AWS resource.
-          example: example_value
-        resource_id:
-          type: string
-          description: The AWS resource identifier.
-          example: '500123'
-        project_id:
-          type: integer
-          description: The ID of the parent MAP Migration project.
-          example: '500123'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
