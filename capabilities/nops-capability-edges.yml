@@ -1,0 +1,27 @@
+slug: nops
+provider: nOps
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Essentials Scheduler
+  spec_file: nops-essentials-scheduler-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.7
+  evidence: 'GET /svc/k8s_cost/recommendations/essentials/scheduler/workload/ ''Nops Get Scheduler Workload
+    Recommendations''; vendor: ''cloud cost visibility and optimization platform ... reduce their AWS
+    spending'''
+  reason: The scheduler produces Kubernetes cost recommendations and automates enabling/disabling workload
+    schedules to cut cloud spend — IT cost optimisation/IT financial management. Some overlap with IT
+    operations automation keeps confidence at 0.7.

@@ -94,6 +94,9 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.23'
 common:
+  - type: CapabilityMap
+    url: capabilities/nops-capability-edges.yml
+    name: nOps Business Capability Map
   - type: Website
     url: https://www.nops.io/
   - type: AgenticAccess
