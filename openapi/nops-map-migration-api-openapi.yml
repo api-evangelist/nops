@@ -129,21 +129,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    MapMigrationProduct:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The unique identifier of the product.
-          example: abc123
-        name:
-          type: string
-          description: The name of the product.
-          example: Example Title
-        project_id:
-          type: integer
-          description: The ID of the parent MAP Migration project.
-          example: '500123'
     MapMigrationResource:
       type: object
       properties:
@@ -188,6 +173,21 @@ components:
           format: date-time
           description: Timestamp when the project was last updated.
           example: '2026-01-15T10:30:00Z'
+    MapMigrationProduct:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the product.
+          example: abc123
+        name:
+          type: string
+          description: The name of the product.
+          example: Example Title
+        project_id:
+          type: integer
+          description: The ID of the parent MAP Migration project.
+          example: '500123'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
