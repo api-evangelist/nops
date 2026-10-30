@@ -1,4 +1,4 @@
-# nOps (nops)
+# nOps
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,66 +66,173 @@
 
 nOps is an AI-powered cloud cost visibility and optimization platform that helps organizations reduce their AWS spending by 50% or more through autonomous management and automation. The platform provides 100% visibility into cloud costs across AWS, GCP, Azure, Kubernetes, GenAI, and SaaS applications, enabling teams to allocate and track spending by customer, product, cost center, or any other dimension even without complete tagging.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/nops/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/nops/refs/heads/main/apis.yml)
+**Areas:** Costs · FinOps
 
-## Scope
+## nOps on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for nOps is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nops/](https://apis.io/providers/nops/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- Costs
-- FinOps
+- [nOps Essentials Scheduler API](https://apis.io/apis/nops/nops-essentials-scheduler-api/) — Endpoints for managing the nOps Essentials scheduler, which automates resource management tasks like starting and stopping non-production workloads to…
+- [nOps MAP Migration API](https://apis.io/apis/nops/nops-map-migration-api/) — Endpoints for managing and retrieving information about AWS Migration Acceleration Program (MAP) migration projects, including projects, products, and…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-01-02
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### nOps
+Which operations an agent can call, which act, and which need a human in the loop.
 
-nOps is an AWS-focused cloud management platform that helps engineering and FinOps teams cut costs, improve governance, and keep environments well-architected. It ingests AWS billing and telemetry data (such as CUR, CloudTrail, and CloudWatch) to surface real-time insights, flag anomalies, and recommend actions like rightsizing, eliminating idle resources, scheduling non‑production workloads, optimizing EBS/S3, and increasing efficient use of Spot.
+- [Nops Agentic Access](https://apis.io/agentic-access/nops/nops-agentic-access/)
 
-- **Human URL:** [ https://www.nops.io/]( https://www.nops.io/)
-- **Base URL:** `https://app.nops.io`
+#### JSON Schema (9)
 
-#### Tags
+The data models the API reads and writes.
 
-- Costs
-- FinOps
+- [nOps MAP Migration Product](https://apis.io/schemas/nops/map-migration-product/)
+- [nOps MAP Migration Project](https://apis.io/schemas/nops/map-migration-project/)
+- [nOps MAP Migration Resource](https://apis.io/schemas/nops/map-migration-resource/)
+- [MapMigrationProduct](https://apis.io/schemas/nops/nops-nops-map-migration-product/)
+- [MapMigrationProject](https://apis.io/schemas/nops/nops-nops-map-migration-project/)
+- [MapMigrationResource](https://apis.io/schemas/nops/nops-nops-map-migration-resource/)
+- [Scheduler](https://apis.io/schemas/nops/nops-nops-scheduler/)
+- [SchedulerCreateRequest](https://apis.io/schemas/nops/nops-nops-scheduler-create-request/)
+- [nOps Scheduler](https://apis.io/schemas/nops/scheduler/)
 
-#### Properties
+#### JSON Structure (5)
 
-- [Documentation]( https://www.nops.io/)
-- [Documentation](https://app.nops.io/public_redoc/)
-- [OpenAPI](openapi/nops-nops-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/nops-nops.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nops-nops.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/map-migration-project.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/map-migration-product.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/map-migration-resource.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/scheduler.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/nops-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+Data models expressed in JSON Structure.
 
-## Common Properties
+- [Nops Nops Map Migration Product Structure](https://apis.io/json-structure/nops/nops-nops-map-migration-product-structure/)
+- [Nops Nops Map Migration Project Structure](https://apis.io/json-structure/nops/nops-nops-map-migration-project-structure/)
+- [Nops Nops Map Migration Resource Structure](https://apis.io/json-structure/nops/nops-nops-map-migration-resource-structure/)
+- [Nops Nops Scheduler Create Request Structure](https://apis.io/json-structure/nops/nops-nops-scheduler-create-request-structure/)
+- [Nops Nops Scheduler Structure](https://apis.io/json-structure/nops/nops-nops-scheduler-structure/)
 
-- [GitHub Organization](https://github.com/nops-io)
-- [LinkedIn](https://www.linkedin.com/company/nops)
-- [Blog](https://www.nops.io/blog/)
-- [Webinars](https://www.nops.io/webinars-and-workshops/)
-- [Resources](https://www.nops.io/ncast/)
+#### JSON-LD (2)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Nops Context](https://apis.io/jsonld/nops/nops-context/)
+- [Nops Nops Context](https://apis.io/jsonld/nops/nops-nops-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [nops API Vocabulary](https://apis.io/vocabularies/nops/nops-vocabulary/)
+
+#### Examples (5)
+
+Example requests and responses.
+
+- [Nops Nops Map Migration Product Example](https://apis.io/examples/nops/nops-nops-map-migration-product-example/)
+- [Nops Nops Map Migration Project Example](https://apis.io/examples/nops/nops-nops-map-migration-project-example/)
+- [Nops Nops Map Migration Resource Example](https://apis.io/examples/nops/nops-nops-map-migration-resource-example/)
+- [Nops Nops Scheduler Create Request Example](https://apis.io/examples/nops/nops-nops-scheduler-create-request-example/)
+- [Nops Nops Scheduler Example](https://apis.io/examples/nops/nops-nops-scheduler-example/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [nOps Essentials Scheduler API](https://apis.io/collections/nops/open-nops-essentials-scheduler-api/)
+- [nOps Essentials Scheduler MAP Migration API](https://apis.io/collections/nops/open-nops-map-migration-api/)
+- [nOps API](https://apis.io/collections/nops/open-nops-nops/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [nOps — jsonschema rules](https://apis.io/rules/nops/nops-jsonschema-spectral-rules/)
+- [nOps API Rules](https://apis.io/rules/nops/nops-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Nops Authentication](https://apis.io/security/nops/nops-authentication/)
+- [Nops Domain Security](https://apis.io/security/nops/nops-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Nops Plans Pricing](https://apis.io/plans/nops/nops-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Nops Rate Limits](https://apis.io/rate-limits/nops/nops-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Nops Finops](https://apis.io/finops/nops/nops-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.nops.io/)
 - [Documentation](https://help.nops.io/docs/introduction/platform-introduction)
-- [Documentation](https://help.nops.io/docs/support/customer-service-sla)
 - [Support](https://help.nops.io/docs/support/open-support-case)
-- [Integrations](https://help.nops.io/docs/agents-integrations/integrations)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Blog](https://www.nops.io/blog/)
+- [GitHub](https://github.com/nops-io)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 30.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 61.0 |
+| Contract governance | 13.6 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nops/](https://apis.io/providers/nops/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for nOps: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nops/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
